@@ -33,7 +33,16 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,7 +51,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DgtModule\InitialData\InitialDataBrands.cs" />
+    <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.cs" />
+    <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.Designer.cs">
+      <DependentUpon>201810091856260_201810092055_InitialSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\MainBCUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Mapping\BrandEntityConfiguration.cs" />
+    <Compile Include="UnitOfWork\Mapping\DriverEntityConfiguration.cs" />
+    <Compile Include="UnitOfWork\Mapping\InfractionEntityConfiguration.cs" />
+    <Compile Include="UnitOfWork\Mapping\InfractionTypeEntityConfiguration.cs" />
+    <Compile Include="UnitOfWork\Mapping\VehicleEntityConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DgtModule\Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Common\Domain.Common.csproj">
+      <Project>{74f50527-8ee1-407a-a424-a17114610777}</Project>
+      <Name>Domain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainBoundedContext\Domain.MainBoundedContext.csproj">
+      <Project>{e5b2fb4f-59e3-4a96-b41e-167a2e1416b6}</Project>
+      <Name>Domain.MainBoundedContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Seedwork\Domain.Seedwork.csproj">
+      <Project>{03fa9159-9b4c-4222-bfe2-85cd27256460}</Project>
+      <Name>Domain.Seedwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.Seedwork\Infrastructure.CrossCutting.Seedwork.csproj">
+      <Project>{7fab6389-bebb-43ad-90c2-76bebe9719e4}</Project>
+      <Name>Infrastructure.CrossCutting.Seedwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Data.Seedwork\Infrastructure.Data.Seedwork.csproj">
+      <Project>{901e8457-e705-4604-a8bf-f75379ed649a}</Project>
+      <Name>Infrastructure.Data.Seedwork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810091856260_201810092055_InitialSetup.resx">
+      <DependentUpon>201810091856260_201810092055_InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,3 +30,7 @@ D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\bin
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\obj\Debug\Infrastructure.CrossCutting.MainBoundedContext.IoC.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\obj\Debug\Infrastructure.CrossCutting.MainBoundedContext.IoC.dll
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\obj\Debug\Infrastructure.CrossCutting.MainBoundedContext.IoC.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\bin\Debug\Domain.Seedwork.dll
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\bin\Debug\EntityFramework.dll
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\bin\Debug\Domain.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.MainBoundedContext.IoC\bin\Debug\EntityFramework.xml

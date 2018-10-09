@@ -2,3 +2,15 @@ D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Infrastructure.
 D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Infrastructure.Data.Seedwork.pdb
 D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\obj\Debug\Infrastructure.Data.Seedwork.dll
 D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\obj\Debug\Infrastructure.Data.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\obj\Debug\Infrastructure.Data.Seedwork.csprojResolveAssemblyReference.cache
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\obj\Debug\Infrastructure.Data.Seedwork.Resources.Messages.resources
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\obj\Debug\Infrastructure.Data.Seedwork.csproj.GenerateResource.Cache
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Infrastructure.Data.Seedwork.dll.config
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Domain.Seedwork.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\EntityFramework.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Infrastructure.CrossCutting.Seedwork.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Domain.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\Infrastructure.CrossCutting.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\EntityFramework.xml
+D:\Projects\prueba-is\DGT\Infrastructure.Data.Seedwork\bin\Debug\EntityFramework.SqlServer.xml

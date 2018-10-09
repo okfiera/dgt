@@ -12,3 +12,6 @@ D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.Seedwork.pd
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\EntityFramework.xml
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\obj\Debug\Domain.MainBoundedContext.csprojResolveAssemblyReference.cache
+D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.dll
+D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.pdb
+D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\es\Infrastructure.GlobalResources.resources.dll
