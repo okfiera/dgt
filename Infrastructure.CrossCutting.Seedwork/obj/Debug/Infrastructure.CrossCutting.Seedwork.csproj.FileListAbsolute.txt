@@ -1,0 +1,7 @@
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\bin\Debug\Infrastructure.CrossCutting.Seedwork.dll
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\bin\Debug\Infrastructure.CrossCutting.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.Properties.Resources.resources
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.Resources.Messages.resources
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.csproj.GenerateResource.Cache
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.dll
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.pdb

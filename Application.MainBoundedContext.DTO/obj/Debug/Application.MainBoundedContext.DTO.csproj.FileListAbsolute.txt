@@ -1,0 +1,4 @@
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext.DTO\bin\Debug\Application.MainBoundedContext.DTO.dll
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext.DTO\bin\Debug\Application.MainBoundedContext.DTO.pdb
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext.DTO\obj\Debug\Application.MainBoundedContext.DTO.dll
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext.DTO\obj\Debug\Application.MainBoundedContext.DTO.pdb

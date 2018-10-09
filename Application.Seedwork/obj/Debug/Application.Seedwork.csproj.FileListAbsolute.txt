@@ -1,0 +1,4 @@
+D:\Projects\prueba-is\DGT\Application.Seedwork\bin\Debug\Application.Seedwork.dll
+D:\Projects\prueba-is\DGT\Application.Seedwork\bin\Debug\Application.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Application.Seedwork\obj\Debug\Application.Seedwork.dll
+D:\Projects\prueba-is\DGT\Application.Seedwork\obj\Debug\Application.Seedwork.pdb

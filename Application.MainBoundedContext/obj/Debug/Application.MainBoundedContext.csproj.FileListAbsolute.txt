@@ -1,0 +1,5 @@
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.MainBoundedContext.dll
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.MainBoundedContext.pdb
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext\obj\Debug\Application.MainBoundedContext.csprojResolveAssemblyReference.cache
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext\obj\Debug\Application.MainBoundedContext.dll
+D:\Projects\prueba-is\DGT\Application.MainBoundedContext\obj\Debug\Application.MainBoundedContext.pdb

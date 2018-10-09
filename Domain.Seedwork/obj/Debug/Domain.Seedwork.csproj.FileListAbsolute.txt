@@ -1,0 +1,10 @@
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\Domain.Seedwork.dll.config
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\Domain.Seedwork.dll
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\Domain.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\EntityFramework.dll
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\EntityFramework.xml
+D:\Projects\prueba-is\DGT\Domain.Seedwork\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\prueba-is\DGT\Domain.Seedwork\obj\Debug\Domain.Seedwork.csprojResolveAssemblyReference.cache
+D:\Projects\prueba-is\DGT\Domain.Seedwork\obj\Debug\Domain.Seedwork.dll
+D:\Projects\prueba-is\DGT\Domain.Seedwork\obj\Debug\Domain.Seedwork.pdb

@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>e5b2fb4f-59e3-4a96-b41e-167a2e1416b6</ProjectGuid>
+    <ProjectGuid>{E5B2FB4F-59E3-4A96-B41E-167A2E1416B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Domain.MainBoundedContext</RootNamespace>
     <AssemblyName>Domain.MainBoundedContext</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,25 +30,66 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DgtModule\Aggregates\BrandAgg\Brand.cs" />
+    <Compile Include="DgtModule\Aggregates\BrandAgg\IBrandRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\DriverAg\DriverFactory.cs" />
+    <Compile Include="DgtModule\Aggregates\DriverAg\Driver.cs" />
+    <Compile Include="DgtModule\Aggregates\DriverAg\DriverSpecifications.cs" />
+    <Compile Include="DgtModule\Aggregates\DriverAg\IDriverRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionAg\IInfractionRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionAg\Infraction.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionAg\InfractionFactory.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionTypeAg\IInfractionTypeRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionAg\InfractionSpecifications.cs" />
+    <Compile Include="DgtModule\Aggregates\InfractionTypeAg\InfractionType.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleAgg\IVehicleRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleAgg\Vehicle.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleAgg\VehicleFactory.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleAgg\VehicleSpecifications.cs" />
+    <Compile Include="DgtModule\Services\DgtDomainService.cs" />
+    <Compile Include="DgtModule\Services\IDgtDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Common\Domain.Common.csproj">
+      <Project>{74f50527-8ee1-407a-a424-a17114610777}</Project>
+      <Name>Domain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Seedwork\Domain.Seedwork.csproj">
+      <Project>{03fa9159-9b4c-4222-bfe2-85cd27256460}</Project>
+      <Name>Domain.Seedwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.GlobalResources\Infrastructure.GlobalResources.csproj">
+      <Project>{8c285d7c-262e-4f8e-8b90-3e848075b312}</Project>
+      <Name>Infrastructure.GlobalResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -55,5 +98,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>

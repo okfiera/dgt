@@ -1,3 +1,4 @@
+D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\obj\Debug\DistributedServices.MainBoundedContext.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\ApplicationInsights.config
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\DistributedServices.MainBoundedContext.dll.config
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\DistributedServices.MainBoundedContext.dll
@@ -13,9 +14,6 @@ D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.D
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.dll
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.Extensions.dll
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.IO.dll
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.Runtime.dll
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.Threading.Tasks.dll
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.AI.DependencyCollector.xml
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.AI.Web.xml
@@ -25,10 +23,5 @@ D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.D
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.xml
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.Extensions.xml
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.IO.xml
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.Runtime.xml
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\bin\System.Threading.Tasks.xml
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\obj\Debug\DistributedServices.MainBoundedContext.csproj.App.config
-D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\obj\Debug\DistributedServices.MainBoundedContext.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\obj\Debug\DistributedServices.MainBoundedContext.dll
 D:\Projects\prueba-is\DGT\DistributedServices.MainBoundedContext\obj\Debug\DistributedServices.MainBoundedContext.pdb

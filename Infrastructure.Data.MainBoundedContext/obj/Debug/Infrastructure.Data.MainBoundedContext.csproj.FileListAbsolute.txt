@@ -1,0 +1,4 @@
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.pdb

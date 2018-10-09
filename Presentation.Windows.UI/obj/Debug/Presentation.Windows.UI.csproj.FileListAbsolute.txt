@@ -1,3 +1,4 @@
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows.UI.exe.config
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows.UI.exe
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows.UI.pdb
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.csprojResolveAssemblyReference.cache
