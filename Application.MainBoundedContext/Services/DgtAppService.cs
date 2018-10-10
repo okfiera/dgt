@@ -7,7 +7,11 @@ using Application.MainBoundedContext.DTO.DgtModule.Brands;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.Seedwork;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleDriverAgg;
 using Infrastructure.GlobalResources;
 
 namespace Application.MainBoundedContext.Services
@@ -18,6 +22,10 @@ namespace Application.MainBoundedContext.Services
 
         private readonly IBrandRepository _brandRepository;
         private readonly IInfractionTypeRepository _infractionTypeRepository;
+        private readonly IDriverRepository _driverRepository;
+        private readonly IVehicleRepository _vehicleRepository;
+        private readonly IInfractionRepository _infractionRepository;
+        private readonly IVehicleDriverRepository _vehicleDriverRepository;
 
         #endregion
 
@@ -30,7 +38,11 @@ namespace Application.MainBoundedContext.Services
         /// </summary>
         public DgtAppService(
             IBrandRepository brandRepository, 
-            IInfractionTypeRepository infractionTypeRepository)
+            IInfractionTypeRepository infractionTypeRepository,
+            IDriverRepository driverRepository,
+            IVehicleRepository vehicleRepository,
+            IInfractionRepository infractionRepository,
+            IVehicleDriverRepository vehicleDriverRepository)
         {
             //Check dependencies
             if (brandRepository == null)
@@ -39,9 +51,25 @@ namespace Application.MainBoundedContext.Services
             if (infractionTypeRepository == null)
                 throw new ArgumentNullException("infractionTypeRepository");
 
+            if (driverRepository == null)
+                throw new ArgumentNullException("driverRepository");
+
+            if (vehicleRepository == null)
+                throw new ArgumentNullException("vehicleRepository");
+
+            if (infractionRepository == null)
+                throw new ArgumentNullException("infractionRepository");
+
+            if (vehicleDriverRepository == null)
+                throw new ArgumentNullException("vehicleDriverRepository");
+
             // Assign dependencies
             _brandRepository = brandRepository;
             _infractionTypeRepository = infractionTypeRepository;
+            _driverRepository = driverRepository;
+            _vehicleRepository = vehicleRepository;
+            _infractionRepository = infractionRepository;
+            _vehicleDriverRepository = vehicleDriverRepository;
         }
 
         #endregion

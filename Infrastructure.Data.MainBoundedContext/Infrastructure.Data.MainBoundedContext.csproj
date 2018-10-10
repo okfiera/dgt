@@ -56,6 +56,7 @@
     <Compile Include="DgtModule\Repositories\DriverRepository.cs" />
     <Compile Include="DgtModule\Repositories\InfractionRepository.cs" />
     <Compile Include="DgtModule\Repositories\InfractionTypeRepository.cs" />
+    <Compile Include="DgtModule\Repositories\VehicleDriverRepository.cs" />
     <Compile Include="DgtModule\Repositories\VehicleRepository.cs" />
     <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.cs" />
     <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.Designer.cs">
@@ -68,6 +69,7 @@
     <Compile Include="UnitOfWork\Mapping\DriverEntityConfiguration.cs" />
     <Compile Include="UnitOfWork\Mapping\InfractionEntityConfiguration.cs" />
     <Compile Include="UnitOfWork\Mapping\InfractionTypeEntityConfiguration.cs" />
+    <Compile Include="UnitOfWork\Mapping\VehicleDriverEntityConfiguration.cs" />
     <Compile Include="UnitOfWork\Mapping\VehicleEntityConfiguration.cs" />
   </ItemGroup>
   <ItemGroup />

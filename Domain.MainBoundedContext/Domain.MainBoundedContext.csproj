@@ -67,6 +67,9 @@
     <Compile Include="DgtModule\Aggregates\VehicleAgg\Vehicle.cs" />
     <Compile Include="DgtModule\Aggregates\VehicleAgg\VehicleFactory.cs" />
     <Compile Include="DgtModule\Aggregates\VehicleAgg\VehicleSpecifications.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleDriverAgg\IVehicleDriverRepository.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleDriverAgg\VehicleDriver.cs" />
+    <Compile Include="DgtModule\Aggregates\VehicleDriverAgg\VehicleDriverSpecifications.cs" />
     <Compile Include="DgtModule\Services\DgtDomainService.cs" />
     <Compile Include="DgtModule\Services\IDgtDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

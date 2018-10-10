@@ -4,6 +4,7 @@ using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleDriverAgg;
 using Infrastructure.Crosscutting.Adapter;
 using Infrastructure.Crosscutting.Logging;
 using Infrastructure.Crosscutting.NetFramework.Adapter;
@@ -79,6 +80,7 @@ namespace Infrastructure.CrossCutting.MainBoundedContext.IoC
             _container.RegisterType<IDriverRepository, DriverRepository>();
             _container.RegisterType<IInfractionRepository, InfractionRepository>();
             _container.RegisterType<IVehicleRepository, VehicleRepository>();
+            _container.RegisterType<IVehicleDriverRepository, VehicleDriverRepository>();
 
 
             //

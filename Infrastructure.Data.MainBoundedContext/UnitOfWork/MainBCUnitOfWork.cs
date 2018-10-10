@@ -12,6 +12,7 @@ using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleDriverAgg;
 using Infrastructure.Data.MainBoundedContext.UnitOfWork.Mapping;
 using Infrastructure.Data.Seedwork;
 
@@ -51,6 +52,12 @@ namespace Infrastructure.Data.MainBoundedContext.UnitOfWork
         ///
         private IDbSet<Infraction> _infractions;
         public IDbSet<Infraction> Infractions => _infractions ?? (_infractions = base.Set<Infraction>());
+
+        ///
+        /// VehicleDrivers
+        ///
+        private IDbSet<VehicleDriver> _vehiclesDrivers;
+        public IDbSet<VehicleDriver> VehiclesDrivers => _vehiclesDrivers ?? (_vehiclesDrivers = base.Set<VehicleDriver>());
 
         #endregion
 
@@ -168,8 +175,9 @@ namespace Infrastructure.Data.MainBoundedContext.UnitOfWork
             modelBuilder.Configurations.Add(new BrandEntityConfiguration());
             modelBuilder.Configurations.Add(new InfractionTypeEntityConfiguration());
             modelBuilder.Configurations.Add(new DriverEntityConfiguration());
-            modelBuilder.Configurations.Add(new VehicleEntityConfiguration()); ;
+            modelBuilder.Configurations.Add(new VehicleEntityConfiguration()); 
             modelBuilder.Configurations.Add(new InfractionEntityConfiguration());
+            modelBuilder.Configurations.Add(new VehicleDriverEntityConfiguration());
         }
 
         #endregion
