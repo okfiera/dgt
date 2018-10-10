@@ -16,8 +16,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
             {
                 License = license,
                 BrandId = brandId,
-                Model = model,
-                DriverId = driverId
+                Model = model
             };
 
             return v;
@@ -32,7 +31,6 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
             };
 
             v.SetBrand(brand);
-            v.SetDriver(driver);
 
             return v;
         }

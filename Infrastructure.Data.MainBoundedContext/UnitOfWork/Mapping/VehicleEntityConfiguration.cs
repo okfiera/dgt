@@ -23,19 +23,11 @@ namespace Infrastructure.Data.MainBoundedContext.UnitOfWork.Mapping
             this.Property(c => c.BrandId)
                 .IsRequired();
 
-            this.Property(c => c.DriverId)
-                .IsRequired();
-
             this.Property(c => c.Model)
                 .HasMaxLength(50)
                 .IsRequired();
 
             //Configure table associations
-            this.HasRequired(c => c.Driver)
-                .WithMany()
-                .HasForeignKey(c => c.DriverId)
-                .WillCascadeOnDelete(false);
-            
             this.HasRequired(c => c.Brand)
                 .WithMany()
                 .HasForeignKey(c => c.BrandId)

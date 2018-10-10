@@ -35,21 +35,21 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
             return specification;
         }
 
-        /// <summary>
-        /// Specification for Vehicle with Driver equals <param name="driverId" />
-        /// </summary>
-        /// <param name="driverId">Car driver plate</param>
-        /// <returns>Associated specification for this criterion</returns>
-        public static Specification<Vehicle> WithDriver(Guid? driverId)
-        {
-            Specification<Vehicle> specification = new TrueSpecification<Vehicle>();
+        ///// <summary>
+        ///// Specification for Vehicle with Driver equals <param name="driverId" />
+        ///// </summary>
+        ///// <param name="driverId">Car driver plate</param>
+        ///// <returns>Associated specification for this criterion</returns>
+        //public static Specification<Vehicle> WithDriver(Guid? driverId)
+        //{
+        //    Specification<Vehicle> specification = new TrueSpecification<Vehicle>();
 
-            //Check arguments
-            if (driverId != null && driverId != Guid.Empty)
-                specification = new DirectSpecification<Vehicle>(v => v.DriverId == driverId);
+        //    //Check arguments
+        //    if (driverId != null && driverId != Guid.Empty)
+        //        specification = new DirectSpecification<Vehicle>(v => v.DriverId == driverId);
 
-            return specification;
-        }
+        //    return specification;
+        //}
 
         /// <summary>
         /// Specification for Vehicle with model equals to <param name="model"></param>

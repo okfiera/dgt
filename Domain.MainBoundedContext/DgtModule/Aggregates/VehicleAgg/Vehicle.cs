@@ -32,16 +32,6 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
         /// </summary>
         public string Model { get; set; }
 
-        /// <summary>
-        /// Get or set vehicle driver identifier
-        /// </summary>
-        public Guid DriverId { get; set; }
-
-        /// <summary>
-        /// Get vehicle driver
-        /// </summary>
-        public virtual Driver Driver { get; private set; }
-
         #endregion
 
 
@@ -58,19 +48,6 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
 
             this.BrandId = brand.Id;
             this.Brand = brand;
-        }
-
-        /// <summary>
-        /// Associate driver to current car
-        /// </summary>
-        /// <param name="driver"></param>
-        public void SetDriver(Driver driver)
-        {
-            if (driver == null || driver.IsTransient())
-                throw new ArgumentNullException(String.Format(CommonMessages.exception_CannotAssociateTransientOrNullEntity, Names.Driver));
-
-            this.DriverId = driver.Id;
-            this.Driver = driver;
         }
 
         #endregion
@@ -99,13 +76,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
             //Check brand
             if (this.BrandId == Guid.Empty)
                 validationResults.Add(new ValidationResult(String.Format(CommonValidations.FieldCannotBeEmpty, Names.Brand), new string[] { "BrandId" }));
-
-
-            //Check driver
-            if (this.DriverId == Guid.Empty)
-                validationResults.Add(new ValidationResult(String.Format(CommonValidations.FieldCannotBeEmpty, Names.Driver), new string[] { "DriverId" }));
             
-
             return validationResults;
         }
 

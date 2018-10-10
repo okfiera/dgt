@@ -11,7 +11,7 @@ namespace Infrastructure.Data.MainBoundedContext.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Infrastructure.Data.MainBoundedContext.UnitOfWork.MainBCUnitOfWork context)
