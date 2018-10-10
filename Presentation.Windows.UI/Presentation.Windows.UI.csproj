@@ -47,16 +47,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmContainer.Designer.cs">
+      <DependentUpon>FrmContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UcControls\UcBrands.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcBrands.Designer.cs">
+      <DependentUpon>UcBrands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcControls\UcDrivers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcDrivers.Designer.cs">
+      <DependentUpon>UcDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcControls\UcHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcHome.Designer.cs">
+      <DependentUpon>UcHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcControls\UcInfractions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcInfractions.Designer.cs">
+      <DependentUpon>UcInfractions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcControls\UcInfractionTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcInfractionTypes.Designer.cs">
+      <DependentUpon>UcInfractionTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcControls\UcVehicles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControls\UcVehicles.Designer.cs">
+      <DependentUpon>UcVehicles.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmContainer.resx">
+      <DependentUpon>FrmContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,7 +104,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UcControls\UcBrands.resx">
+      <DependentUpon>UcBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcControls\UcDrivers.resx">
+      <DependentUpon>UcDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcControls\UcHome.resx">
+      <DependentUpon>UcHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcControls\UcInfractions.resx">
+      <DependentUpon>UcInfractions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcControls\UcInfractionTypes.resx">
+      <DependentUpon>UcInfractionTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcControls\UcVehicles.resx">
+      <DependentUpon>UcVehicles.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Brands.BrandDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,6 +143,27 @@
       <Project>{b4a3f1a2-cc01-46ce-891b-6c1b3a8bf260}</Project>
       <Name>Presentation.Windows.Seedwork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addnew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SecondaryForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

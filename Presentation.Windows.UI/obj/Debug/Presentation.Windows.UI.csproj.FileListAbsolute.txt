@@ -2,7 +2,6 @@ D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows.UI.exe
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Presentation.Windows.UI.pdb
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.csprojResolveAssemblyReference.cache
-D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.Form1.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.Properties.Resources.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.csproj.GenerateResource.Cache
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.exe
@@ -27,3 +26,10 @@ D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Domain.Seedwork.pdb
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\Infrastructure.GlobalResources.pdb
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\EntityFramework.xml
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\bin\Debug\es\Infrastructure.GlobalResources.resources.dll
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.FrmContainer.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcBrands.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcDrivers.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcHome.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcInfractions.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcInfractionTypes.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcVehicles.resources
