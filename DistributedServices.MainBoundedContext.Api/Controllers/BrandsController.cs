@@ -42,6 +42,13 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
             return Ok(brandsDTO);
         }
 
+        [HttpGet]
+        public IHttpActionResult Get(Guid id)
+        {
+            var brandDTO = this._dgtAppService.GetBrandById(id);
+            return Ok(brandDTO);
+        }
+
         #endregion
     }
 }

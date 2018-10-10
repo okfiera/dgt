@@ -40,8 +40,10 @@ namespace Presentation.Windows.UI.UcControls
         {
             this.infractionTypes = await ApiManagerInfractionTypes.GetAllInfractionTypes();
             this.infractionTypeDTOBindingSource.DataSource = this.infractionTypes.OrderBy(m => m.Name);
-        }
 
+            SetResources();
+        }
+        
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
@@ -58,7 +60,6 @@ namespace Presentation.Windows.UI.UcControls
 
                 e.Handled = true;
             }
-
         }
 
         private void cmdClearLocalFilter_Click(object sender, EventArgs e)
@@ -76,6 +77,17 @@ namespace Presentation.Windows.UI.UcControls
                 this.infractionTypes.Add(infractionTypeAdded);
                 this.infractionTypeDTOBindingSource.Add(infractionTypeAdded);
             }
+        }
+
+        #endregion
+
+
+
+        #region Private methods
+
+        private void SetResources()
+        {
+            this.cmdAddNewInfractionType.Image = Properties.Resources.addnew;
         }
 
         #endregion

@@ -90,6 +90,8 @@ namespace Presentation.Windows.UI.SecondaryForms
 
         private bool ValidateData()
         {
+            this.ClearErrors();
+
             var result = true;
 
             if (String.IsNullOrEmpty(this.nameTextBox.Text.Trim()))

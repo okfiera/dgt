@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Brands;
+using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.Seedwork;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
@@ -20,12 +21,14 @@ namespace Application.MainBoundedContext.Services
     {
         #region Members
 
+        private const int INITIAL_POINTS = 12;
+
         private readonly IBrandRepository _brandRepository;
         private readonly IInfractionTypeRepository _infractionTypeRepository;
         private readonly IDriverRepository _driverRepository;
         private readonly IVehicleRepository _vehicleRepository;
-        private readonly IInfractionRepository _infractionRepository;
         private readonly IVehicleDriverRepository _vehicleDriverRepository;
+        private readonly IInfractionRepository _infractionRepository;
 
         #endregion
 
@@ -94,7 +97,18 @@ namespace Application.MainBoundedContext.Services
                 return null;
         }
 
-
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public BrandDTO GetBrandById(Guid id)
+        {
+            var result = _brandRepository.Get(id);
+            if (result != null)
+                return result.ProjectedAs<BrandDTO>();
+            else
+                return null;
+        }
 
         #endregion
 
@@ -122,7 +136,7 @@ namespace Application.MainBoundedContext.Services
         public InfractionTypeDTO AddNewInfractionType(InfractionTypeDTO infractionTypeDTO)
         {
             if (infractionTypeDTO == null)
-                throw new ArgumentNullException("infractionType");
+                throw new ArgumentNullException("infractionTypeDTO");
 
             // Check InfractionType name is not repeated
             var repeatedName = _infractionTypeRepository.GetFiltered(i => i.Name.ToLower() == infractionTypeDTO.Name.ToLower());
@@ -138,6 +152,89 @@ namespace Application.MainBoundedContext.Services
             _infractionTypeRepository.UnitOfWork.Commit();
 
             return infractionType.ProjectedAs<InfractionTypeDTO>();
+        }
+
+        #endregion
+
+
+
+        #region Driver methods
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<DriverDTO> SearchDrivers(string filter)
+        {
+            if (String.IsNullOrEmpty(filter))
+                throw new ArgumentNullException("filter");
+
+            var fulltextSpec = DriverSpecifications.FullText(filter);
+            var result = _driverRepository.AllMatching(fulltextSpec);
+            if (result != null && result.Any())
+                return result.ProjectedAsCollection<DriverDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public DriverDTO GetDriverById(Guid id)
+        {
+            var result = _driverRepository.Get(id);
+            if (result != null)
+                return result.ProjectedAs<DriverDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public DriverDTO GetDriverByNifNie(string identifier)
+        {
+            if (String.IsNullOrEmpty(identifier))
+                throw new ArgumentNullException("identifier");
+
+            var identifierSpec = DriverSpecifications.WithIdentifier(identifier);
+            var result = _driverRepository.AllMatching(identifierSpec);
+            if (result != null && result.Any())
+                return result.First().ProjectedAs<DriverDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public DriverDTO AddNewDriver(DriverDTO driverDTO)
+        {
+            if (driverDTO == null)
+                throw new ArgumentNullException("driverDTO");
+
+            // Check driver identifier is unique
+            var identifierSpec = DriverSpecifications.WithIdentifier(driverDTO.Identifier);
+            var repeatedIdentifierDriver = _driverRepository.AllMatching(identifierSpec);
+            if(repeatedIdentifierDriver != null && repeatedIdentifierDriver.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_ItemAlreadyExistsWithProperty, Names.Driver, Names.Identifier, driverDTO.Identifier));
+
+            // Cast dto to driver and save
+            var driver = MaterializeDriverFromDto(driverDTO);
+
+            // Set initial points for new drivers
+            driver.SetInitialPoints();
+
+            driver.GenerateNewIdentity();
+            driver.Validate();
+
+            _driverRepository.Add(driver);
+            _driverRepository.UnitOfWork.Commit();
+
+            return driver.ProjectedAs<DriverDTO>();
         }
 
         #endregion
@@ -164,6 +261,16 @@ namespace Application.MainBoundedContext.Services
                 it.ChangeCurrentIdentity(dto.Id);
 
             return it;
+        }
+
+        private Driver MaterializeDriverFromDto(DriverDTO dto)
+        {
+            var driver = DriverFactory.CreateDriver(dto.Identifier, dto.FirstName, dto.LastName, dto.Points);
+
+            if (dto.Id != Guid.Empty)
+                driver.ChangeCurrentIdentity(dto.Id);
+
+            return driver;
         }
 
         #endregion

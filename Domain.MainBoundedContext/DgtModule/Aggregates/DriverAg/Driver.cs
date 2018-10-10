@@ -14,6 +14,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
     {
         #region Members
 
+        private const int INITIAL_POINTS = 12;
         private const int MAX_POINTS = 15;
 
         #endregion
@@ -44,7 +45,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
         /// <summary>
         /// Driver remaining points. 
         /// </summary>
-        public int Points { get; private set; }
+        public int Points { get; set; }
 
         #endregion
 
@@ -81,6 +82,15 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
             this.Points = p;
 
             return this.Points;
+        }
+
+        /// <summary>
+        /// Set initial points
+        /// </summary>
+        /// <returns></returns>
+        public void SetInitialPoints()
+        {
+            this.Points = INITIAL_POINTS;
         }
 
         #endregion

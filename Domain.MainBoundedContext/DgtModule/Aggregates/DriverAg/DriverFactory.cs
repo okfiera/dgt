@@ -8,9 +8,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
 {
     public static class DriverFactory
     {
-        private const int MAX_POINTS = 12;
-
-        public static Driver CreateDriver(string identifier, string firstName, string lastName, int points = MAX_POINTS)
+        public static Driver CreateDriver(string identifier, string firstName, string lastName, int? points)
         {
             var driver = new Driver()
             {
@@ -19,7 +17,8 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
                 LastName = lastName
             };
 
-            driver.AddPoints(points);
+            if (points != null)
+                driver.Points = points.Value;
 
             return driver;
         }

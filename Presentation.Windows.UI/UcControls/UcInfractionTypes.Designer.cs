@@ -30,19 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcInfractionTypes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.cmdClearLocalFilter = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmdAddNewInfractionType = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.infractionTypeDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmdAddNewInfractionType = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionTypeDTOBindingSource)).BeginInit();
@@ -107,8 +108,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -126,6 +127,19 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(937, 424);
             this.dataGridView1.TabIndex = 21;
+            // 
+            // cmdAddNewInfractionType
+            // 
+            this.cmdAddNewInfractionType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAddNewInfractionType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdAddNewInfractionType.Location = new System.Drawing.Point(759, 58);
+            this.cmdAddNewInfractionType.Name = "cmdAddNewInfractionType";
+            this.cmdAddNewInfractionType.Size = new System.Drawing.Size(193, 38);
+            this.cmdAddNewInfractionType.TabIndex = 22;
+            this.cmdAddNewInfractionType.Text = "Nuevo tipo de infracción";
+            this.cmdAddNewInfractionType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdAddNewInfractionType.UseVisualStyleBackColor = true;
+            this.cmdAddNewInfractionType.Click += new System.EventHandler(this.cmdAddNewInfractionType_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -162,25 +176,23 @@
             // 
             this.infractionTypeDTOBindingSource.DataSource = typeof(Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO);
             // 
-            // cmdAddNewInfractionType
+            // label5
             // 
-            this.cmdAddNewInfractionType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAddNewInfractionType.Image = global::Presentation.Windows.UI.Properties.Resources.addnew;
-            this.cmdAddNewInfractionType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAddNewInfractionType.Location = new System.Drawing.Point(759, 58);
-            this.cmdAddNewInfractionType.Name = "cmdAddNewInfractionType";
-            this.cmdAddNewInfractionType.Size = new System.Drawing.Size(193, 38);
-            this.cmdAddNewInfractionType.TabIndex = 22;
-            this.cmdAddNewInfractionType.Text = "Nuevo tipo de infracción";
-            this.cmdAddNewInfractionType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAddNewInfractionType.UseVisualStyleBackColor = true;
-            this.cmdAddNewInfractionType.Click += new System.EventHandler(this.cmdAddNewInfractionType_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label5.Location = new System.Drawing.Point(341, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 17);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Pulsar ENTER para buscar";
             // 
             // UcInfractionTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cmdAddNewInfractionType);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmdClearLocalFilter);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource infractionTypeDTOBindingSource;
         private System.Windows.Forms.Button cmdAddNewInfractionType;
+        private System.Windows.Forms.Label label5;
     }
 }

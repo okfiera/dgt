@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Brands;
+using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using AutoMapper;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
 
 namespace Application.MainBoundedContext.DTO.Profiles
@@ -20,6 +22,7 @@ namespace Application.MainBoundedContext.DTO.Profiles
         {
             CreateMap<Brand, BrandDTO>();
             CreateMap<InfractionType, InfractionTypeDTO>();
+            CreateMap<Driver, DriverDTO>();
         }
     }
 }
