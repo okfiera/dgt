@@ -53,6 +53,10 @@
   <ItemGroup>
     <Compile Include="DgtModule\InitialData\InitialDataBrands.cs" />
     <Compile Include="DgtModule\Repositories\BrandRepository.cs" />
+    <Compile Include="DgtModule\Repositories\DriverRepository.cs" />
+    <Compile Include="DgtModule\Repositories\InfractionRepository.cs" />
+    <Compile Include="DgtModule\Repositories\InfractionTypeRepository.cs" />
+    <Compile Include="DgtModule\Repositories\VehicleRepository.cs" />
     <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.cs" />
     <Compile Include="Migrations\201810091856260_201810092055_InitialSetup.Designer.cs">
       <DependentUpon>201810091856260_201810092055_InitialSetup.cs</DependentUpon>

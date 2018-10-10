@@ -52,13 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DgtModule\Brands\BrandDTO.cs" />
+    <Compile Include="DgtModule\InfractionTypes\InfractionTypeDTO.cs" />
     <Compile Include="Profiles\DgtProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DgtModule\Drivers\" />
     <Folder Include="DgtModule\Infractions\" />
-    <Folder Include="DgtModule\InfractionTypes\" />
     <Folder Include="DgtModule\Vehicles\" />
   </ItemGroup>
   <ItemGroup>

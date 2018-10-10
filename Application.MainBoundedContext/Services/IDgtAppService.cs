@@ -1,4 +1,5 @@
 ﻿using Application.MainBoundedContext.DTO.DgtModule.Brands;
+using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,27 @@ namespace Application.MainBoundedContext.Services
 {
     public interface IDgtAppService: IDisposable
     {
+        #region Brands
+
         /// <summary>
         /// Get all Brands
         /// </summary>
         /// <returns>List of Brand representations</returns>
         List<BrandDTO> GetAllBrands();
+
+        #endregion
+
+
+
+        #region Infraction types
+
+        /// <summary>
+        /// Get all Infraction types
+        /// </summary>
+        /// <returns>List of infraction type representations</returns>
+        List<InfractionTypeDTO> GetAllInfractionTypes();
+
+        #endregion
+
     }
 }

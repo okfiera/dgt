@@ -5,3 +5,4 @@ D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrast
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.csproj.GenerateResource.Cache
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.dll
 D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.pdb
+D:\Projects\prueba-is\DGT\Infrastructure.CrossCutting.Seedwork\obj\Debug\Infrastructure.CrossCutting.Seedwork.csprojResolveAssemblyReference.cache

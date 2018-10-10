@@ -1,5 +1,9 @@
 ﻿using Application.MainBoundedContext.Services;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg;
 using Infrastructure.Crosscutting.Adapter;
 using Infrastructure.Crosscutting.Logging;
 using Infrastructure.Crosscutting.NetFramework.Adapter;
@@ -71,6 +75,10 @@ namespace Infrastructure.CrossCutting.MainBoundedContext.IoC
             //
             // -> CommonModule
             _container.RegisterType<IBrandRepository, BrandRepository>();
+            _container.RegisterType<IInfractionTypeRepository, InfractionTypeRepository>();
+            _container.RegisterType<IDriverRepository, DriverRepository>();
+            _container.RegisterType<IInfractionRepository, InfractionRepository>();
+            _container.RegisterType<IVehicleRepository, VehicleRepository>();
 
 
             //
