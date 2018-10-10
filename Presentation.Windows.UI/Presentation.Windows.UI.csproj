@@ -79,6 +79,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.MainBoundedContext.DTO\Application.MainBoundedContext.DTO.csproj">
+      <Project>{b02bfd2f-1d3b-4391-af4f-6593b37f82b2}</Project>
+      <Name>Application.MainBoundedContext.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation.Windows.Seedwork\Presentation.Windows.Seedwork.csproj">
+      <Project>{b4a3f1a2-cc01-46ce-891b-6c1b3a8bf260}</Project>
+      <Name>Presentation.Windows.Seedwork</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
