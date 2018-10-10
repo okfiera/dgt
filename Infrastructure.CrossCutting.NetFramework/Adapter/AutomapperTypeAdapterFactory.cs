@@ -13,6 +13,7 @@
 using AutoMapper;
 using Infrastructure.Crosscutting.Adapter;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Infrastructure.Crosscutting.NetFramework.Adapter
@@ -35,12 +36,26 @@ namespace Infrastructure.Crosscutting.NetFramework.Adapter
                                         .SelectMany(a => a.GetTypes())
                                         .Where(t => t.BaseType == typeof(Profile));
 
+                var y = profiles.ToList();
+
                 Mapper.Initialize(cfg =>
                 {
                     foreach (var item in profiles)
                     {
-                        if (item.FullName != "AutoMapper.SelfProfiler`2")
-                            cfg.AddProfile(Activator.CreateInstance(item) as Profile);
+                        try
+                        {
+                            if (item.FullName != "AutoMapper.SelfProfiler`2" &&
+                                item.FullName != "AutoMapper.Configuration.MapperConfigurationExpression" &&
+                                item.FullName != "AutoMapper.Configuration.MapperConfigurationExpression+NamedProfile")
+                            {
+                                cfg.AddProfiles(item);
+                            }
+                               
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.Print(ex.Message);
+                        }
                     }
                 });
             }

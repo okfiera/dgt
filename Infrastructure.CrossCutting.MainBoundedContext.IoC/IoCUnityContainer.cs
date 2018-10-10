@@ -1,10 +1,13 @@
-﻿using Infrastructure.Crosscutting.Adapter;
+﻿using Application.MainBoundedContext.Services;
+using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
+using Infrastructure.Crosscutting.Adapter;
 using Infrastructure.Crosscutting.Logging;
 using Infrastructure.Crosscutting.NetFramework.Adapter;
 using Infrastructure.Crosscutting.NetFramework.Caching;
 using Infrastructure.Crosscutting.NetFramework.Logging;
 using Infrastructure.Crosscutting.NetFramework.Validator;
 using Infrastructure.Crosscutting.Validator;
+using Infrastructure.Data.MainBoundedContext.DgtModule.Repositories;
 using Unity;
 using Unity.Lifetime;
 
@@ -63,7 +66,25 @@ namespace Infrastructure.CrossCutting.MainBoundedContext.IoC
             _container.RegisterType<Crosscutting.Caching.ICacheManager, CacheManager>();
 
 
-            
+            //
+            //-> REPOSITORIES -----------------------------------------------------------------------------------------------------------------------
+            //
+            // -> CommonModule
+            _container.RegisterType<IBrandRepository, BrandRepository>();
+
+
+            //
+            //-> DOMAIN SERVICES  ----------------------------------------------------------------------------------------------------------------
+            //
+
+            //
+            //-> APPLICATION SERVICES ----------------------------------------------------------------------------------------------------------
+            //
+            // -> CommonModule
+            _container.RegisterType<IDgtAppService, DgtAppService>();
+
+
+
             //Return container
             return _container;
         }

@@ -1,4 +1,0 @@
-D:\Projects\prueba-is\DGT\DistributedServices.Seedwork\bin\Debug\DistributedServices.Seedwork.dll
-D:\Projects\prueba-is\DGT\DistributedServices.Seedwork\bin\Debug\DistributedServices.Seedwork.pdb
-D:\Projects\prueba-is\DGT\DistributedServices.Seedwork\obj\Debug\DistributedServices.Seedwork.dll
-D:\Projects\prueba-is\DGT\DistributedServices.Seedwork\obj\Debug\DistributedServices.Seedwork.pdb

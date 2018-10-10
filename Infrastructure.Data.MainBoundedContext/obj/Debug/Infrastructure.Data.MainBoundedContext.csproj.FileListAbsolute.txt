@@ -1,9 +1,6 @@
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.dll.config
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.dll
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.pdb
-D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.dll
-D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.pdb
-D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.csprojResolveAssemblyReference.cache
-D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.Data.MainBoundedContext.dll.config
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Domain.Common.dll
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.dll
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Domain.Seedwork.dll
@@ -21,5 +18,8 @@ D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Entit
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.pdb
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\bin\Debug\es\Infrastructure.GlobalResources.resources.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.Migrations._201810092055_InitialSetup.resources
 D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.csproj.GenerateResource.Cache
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.dll
+D:\Projects\prueba-is\DGT\Infrastructure.Data.MainBoundedContext\obj\Debug\Infrastructure.Data.MainBoundedContext.pdb

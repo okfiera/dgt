@@ -1,7 +1,6 @@
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\bin\Debug\Infrastructure.GlobalResources.dll
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\bin\Debug\Infrastructure.GlobalResources.pdb
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\bin\Debug\es\Infrastructure.GlobalResources.resources.dll
-D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.CommonMessages.resources
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.CommonValidations.resources
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.Names.resources

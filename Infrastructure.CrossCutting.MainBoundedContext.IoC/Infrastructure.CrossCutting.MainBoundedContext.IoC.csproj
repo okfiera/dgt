@@ -82,6 +82,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.MainBoundedContext.DTO\Application.MainBoundedContext.DTO.csproj">
+      <Project>{b02bfd2f-1d3b-4391-af4f-6593b37f82b2}</Project>
+      <Name>Application.MainBoundedContext.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainBoundedContext\Application.MainBoundedContext.csproj">
+      <Project>{F8728FD0-B38B-4FBE-90C1-9AF267913D3A}</Project>
+      <Name>Application.MainBoundedContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainBoundedContext\Domain.MainBoundedContext.csproj">
+      <Project>{E5B2FB4F-59E3-4A96-B41E-167A2E1416B6}</Project>
+      <Name>Domain.MainBoundedContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Seedwork\Domain.Seedwork.csproj">
+      <Project>{03FA9159-9B4C-4222-BFE2-85CD27256460}</Project>
+      <Name>Domain.Seedwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.CrossCutting.NetFramework\Infrastructure.CrossCutting.NetFramework.csproj">
       <Project>{afa260de-4125-4431-9890-b91690c1e1a2}</Project>
       <Name>Infrastructure.CrossCutting.NetFramework</Name>
@@ -89,6 +105,10 @@
     <ProjectReference Include="..\Infrastructure.CrossCutting.Seedwork\Infrastructure.CrossCutting.Seedwork.csproj">
       <Project>{7fab6389-bebb-43ad-90c2-76bebe9719e4}</Project>
       <Name>Infrastructure.CrossCutting.Seedwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Data.MainBoundedContext\Infrastructure.Data.MainBoundedContext.csproj">
+      <Project>{7DF132DD-771D-496C-8267-1EE311B3880F}</Project>
+      <Name>Infrastructure.Data.MainBoundedContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Data.Seedwork\Infrastructure.Data.Seedwork.csproj">
       <Project>{901e8457-e705-4604-a8bf-f75379ed649a}</Project>
