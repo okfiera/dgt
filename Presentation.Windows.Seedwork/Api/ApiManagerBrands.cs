@@ -14,7 +14,7 @@ namespace Presentation.Windows.Seedwork.Api
         {
             using (var client = GetHttpClient())
             {
-                const string urlKey = "Brands";
+                const string urlKey = "brands";
 
                 using (var response = await client.GetAsync(urlKey))
                 {

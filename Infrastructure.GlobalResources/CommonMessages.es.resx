@@ -120,4 +120,7 @@
   <data name="exception_CannotAssociateTransientOrNullEntity" xml:space="preserve">
     <value>El elemento que intenta asociar ({0}) es nulo o todavía no se ha guardado</value>
   </data>
+  <data name="exception_ItemAlreadyExistsWithProperty" xml:space="preserve">
+    <value>Ya existe otro/a {0} con la misma propiedad {1} ('{2}')</value>
+  </data>
 </root>

@@ -68,5 +68,14 @@ namespace Infrastructure.GlobalResources {
                 return ResourceManager.GetString("exception_CannotAssociateTransientOrNullEntity", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already exists other {0} with property {1} &apos;{2}&apos;.
+        /// </summary>
+        public static string exception_ItemAlreadyExistsWithProperty {
+            get {
+                return ResourceManager.GetString("exception_ItemAlreadyExistsWithProperty", resourceCulture);
+            }
+        }
     }
 }

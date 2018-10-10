@@ -30,6 +30,13 @@ namespace Application.MainBoundedContext.Services
         /// <returns>List of infraction type representations</returns>
         List<InfractionTypeDTO> GetAllInfractionTypes();
 
+        /// <summary>
+        /// Add new Infraction type
+        /// </summary>
+        /// <param name="infractionType">Infraction type to create</param>
+        /// <returns>Infraction type representation created</returns>
+        InfractionTypeDTO AddNewInfractionType(InfractionTypeDTO infractionType);
+
         #endregion
 
     }

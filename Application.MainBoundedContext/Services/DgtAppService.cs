@@ -8,6 +8,7 @@ using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.Seedwork;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
+using Infrastructure.GlobalResources;
 
 namespace Application.MainBoundedContext.Services
 {
@@ -86,9 +87,56 @@ namespace Application.MainBoundedContext.Services
                 return null;
         }
 
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public InfractionTypeDTO AddNewInfractionType(InfractionTypeDTO infractionTypeDTO)
+        {
+            if (infractionTypeDTO == null)
+                throw new ArgumentNullException("infractionType");
+
+            // Check InfractionType name is not repeated
+            var repeatedName = _infractionTypeRepository.GetFiltered(i => i.Name.ToLower() == infractionTypeDTO.Name.ToLower());
+            if (repeatedName != null && repeatedName.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_ItemAlreadyExistsWithProperty, Names.InfractionType, Names.Name, infractionTypeDTO.Name));
+            
+            // Cast and save item
+            var infractionType = MaterializeInfractionTypeFromDto(infractionTypeDTO);
+            infractionType.GenerateNewIdentity();
+            infractionType.Validate();
+
+            _infractionTypeRepository.Add(infractionType);
+            _infractionTypeRepository.UnitOfWork.Commit();
+
+            return infractionType.ProjectedAs<InfractionTypeDTO>();
+        }
+
         #endregion
 
 
+
+        #endregion
+
+
+
+
+        #region Private methods
+
+        private InfractionType MaterializeInfractionTypeFromDto(InfractionTypeDTO dto)
+        {
+            var it = new InfractionType()
+            {
+                Name = dto.Name,
+                Points = dto.Points,
+                Description = dto.Description
+            };
+
+            if (dto.Id != Guid.Empty)
+                it.ChangeCurrentIdentity(dto.Id);
+
+            return it;
+        }
 
         #endregion
 

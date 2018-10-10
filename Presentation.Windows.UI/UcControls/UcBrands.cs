@@ -47,12 +47,17 @@ namespace Presentation.Windows.UI.UcControls
             {
                 this.txtFilter.Text = "";
                 this.brandDTOBindingSource.DataSource = this.brands.OrderBy(m => m.Name);
+
+                e.Handled = true;
             }
             else if (e.KeyChar == (char)Keys.Enter)
             {
                 var filter = this.txtFilter.Text;
                 this.brandDTOBindingSource.DataSource = this.brands.Where(m => m.Name.ToLower().Contains(filter.ToLower())).OrderBy(m => m.Name);
+
+                e.Handled = true;
             }
+
         }
 
         private void cmdClearLocalFilter_Click(object sender, EventArgs e)

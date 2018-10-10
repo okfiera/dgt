@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiManagerBrands.cs" />
+    <Compile Include="Api\ApiManagerInfractionTypes.cs" />
     <Compile Include="Api\_ApiResult.cs" />
     <Compile Include="Api\_ApiManagerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

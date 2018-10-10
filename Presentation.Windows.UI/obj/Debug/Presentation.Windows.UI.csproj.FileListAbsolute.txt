@@ -33,3 +33,4 @@ D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcInfractions.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcInfractionTypes.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.UcControls.UcVehicles.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.SecondaryForms.FrmAddNewInfractionType.resources

@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecondaryForms\FrmAddNewInfractionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecondaryForms\FrmAddNewInfractionType.Designer.cs">
+      <DependentUpon>FrmAddNewInfractionType.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcControls\UcBrands.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SecondaryForms\FrmAddNewInfractionType.resx">
+      <DependentUpon>FrmAddNewInfractionType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcControls\UcBrands.resx">
       <DependentUpon>UcBrands.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +133,8 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Brands.BrandDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.Profiles.DgtProfile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,9 +170,7 @@
   <ItemGroup>
     <None Include="Resources\Cancel_24x24.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SecondaryForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
