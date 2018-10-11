@@ -54,8 +54,10 @@ namespace Presentation.Windows.UI.UcControls
             var infractionAdded = frmAddNewInfraction.AddNewInfraction();
             if (frmAddNewInfraction.DialogResult == DialogResult.OK && infractionAdded != null)
             {
-                // this.txtFilter.Text = infractionAdded.Identifier;
-                // this.GetInfraction(infractionAdded.Identifier);
+                this.txtFilterDriverIdentifier.Text = infractionAdded.DriverIdentifier;
+                this.txtFilterVehicleLicense.Text = infractionAdded.VehicleLicense;
+
+                this.SearchInfractions();
             }
         }
         private void cmdSearch_Click(object sender, EventArgs e)
@@ -77,11 +79,11 @@ namespace Presentation.Windows.UI.UcControls
                 from = this.dtpFilterFrom.Value;
 
             DateTime? to = null;
-            if (this.dtpFilterFrom.Checked)
+            if (this.dtpFilterTo.Checked)
                 to = this.dtpFilterTo.Value;
 
             var infractionTypeId = "";
-            if (this.cmbFilterInfractionType.SelectedValue != null)
+            if (this.cmbFilterInfractionType.SelectedValue.ToString() != Guid.Empty.ToString())
                 infractionTypeId = this.cmbFilterInfractionType.SelectedValue.ToString();
 
             this.infractions = await ApiManagerInfractions.Search(this.txtFilterVehicleLicense.Text, this.txtFilterDriverIdentifier.Text, infractionTypeId, from, to );
@@ -99,7 +101,14 @@ namespace Presentation.Windows.UI.UcControls
 
         private async void LoadInfractionTypes()
         {
-            this.infractionTypes = await ApiManagerInfractionTypes.GetAllInfractionTypes();
+            this.infractionTypes = new List<InfractionTypeDTO>()
+            {
+                new InfractionTypeDTO() {Name = "TODAS"}
+            };
+
+            var it = await ApiManagerInfractionTypes.GetAllInfractionTypes();
+            this.infractionTypes.AddRange(it);
+
             this.infractionTypeDTOBindingSource.DataSource = this.infractionTypes;
         }
 

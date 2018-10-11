@@ -37,7 +37,7 @@ namespace Presentation.Windows.Seedwork.Api
             }
         }
 
-        public static async Task<VehicleDriverDTO> GetByVehicleLicense(string license)
+        public static async Task<List<VehicleDriverDTO>> GetDriversByVehicleLicense(string license)
         {
             using (var client = GetHttpClient())
             {
@@ -47,11 +47,11 @@ namespace Presentation.Windows.Seedwork.Api
                     {
                         var result = await response.Content.ReadAsStringAsync();
                         if (result == null || result == "null")
-                            return null;
+                            return new List<VehicleDriverDTO>();
                         else
                         {
-                            var item = JsonConvert.DeserializeObject<VehicleDriverDTO>(result);
-                            return item;
+                            var items = JsonConvert.DeserializeObject<VehicleDriverDTO[]>(result).ToList();
+                            return items;
                         }
                     }
                     else

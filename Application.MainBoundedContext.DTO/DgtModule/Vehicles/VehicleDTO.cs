@@ -34,6 +34,11 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Vehicles
         public string Model { get; set; }
 
         /// <summary>
+        /// Vehicle full name
+        /// </summary>
+        public string VehicleFullName { get; set; }
+
+        /// <summary>
         /// Get or ser habitual driver
         /// </summary>
         public Guid DriverId { get; set; }

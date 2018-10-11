@@ -59,29 +59,6 @@ namespace Presentation.Windows.Seedwork.Api
             }
         }
 
-        public static async Task<VehicleDriverDTO> GetByDriverIdentifier(string identifier)
-        {
-            using (var client = GetHttpClient())
-            {
-                using (var response = await client.GetAsync(URL_KEY + "/drivers/" + identifier))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var result = await response.Content.ReadAsStringAsync();
-                        if (result == null || result == "null")
-                            return null;
-                        else
-                        {
-                            var item = JsonConvert.DeserializeObject<VehicleDriverDTO>(result);
-                            return item;
-                        }
-                    }
-                    else
-                        throw new Exception(GetHttpError(response));
-                }
-            }
-        }
-
 
         public static async Task<VehicleDTO> AddNew(VehicleDTO vehicle)
         {

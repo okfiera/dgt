@@ -164,6 +164,7 @@
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Vehicles.VehicleDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers.VehicleDriverDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.Profiles.DgtProfile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
