@@ -10,7 +10,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
 {
     public static class VehicleFactory
     {
-        public static Vehicle CreateVehicle(string license, Guid brandId, string model, Guid driverId) 
+        public static Vehicle CreateVehicle(string license, Guid brandId, string model) 
         {
             var v = new Vehicle()
             {
@@ -22,7 +22,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
             return v;
         }
 
-        public static Vehicle CreateVehicle(string license, Brand brand, string model, Driver driver)
+        public static Vehicle CreateVehicle(string license, Brand brand, string model)
         {
             var v = new Vehicle()
             {

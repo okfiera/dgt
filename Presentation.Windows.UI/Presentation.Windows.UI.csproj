@@ -67,6 +67,12 @@
     <Compile Include="SecondaryForms\FrmAddNewInfractionType.Designer.cs">
       <DependentUpon>FrmAddNewInfractionType.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecondaryForms\FrmAddNewVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecondaryForms\FrmAddNewVehicle.Designer.cs">
+      <DependentUpon>FrmAddNewVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcControls\UcBrands.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <EmbeddedResource Include="SecondaryForms\FrmAddNewInfractionType.resx">
       <DependentUpon>FrmAddNewInfractionType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecondaryForms\FrmAddNewVehicle.resx">
+      <DependentUpon>FrmAddNewVehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcControls\UcBrands.resx">
       <DependentUpon>UcBrands.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +153,7 @@
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Brands.BrandDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Drivers.DriverDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Vehicles.VehicleDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.Profiles.DgtProfile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -180,7 +190,9 @@
   <ItemGroup>
     <None Include="Resources\Cancel_24x24.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\DGT_logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

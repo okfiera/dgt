@@ -28,6 +28,7 @@ namespace Presentation.Windows.UI.SecondaryForms
         public FrmAddNewDriver()
         {
             InitializeComponent();
+            SetResources();
         }
 
         #endregion
@@ -126,6 +127,12 @@ namespace Presentation.Windows.UI.SecondaryForms
             }
         }
 
+
+        private void SetResources()
+        {
+            this.cmdCancel.Image = global::Presentation.Windows.UI.Properties.Resources.cancel;
+            this.cmdAccept.Image = global::Presentation.Windows.UI.Properties.Resources.ok;
+        }
 
 
         #endregion

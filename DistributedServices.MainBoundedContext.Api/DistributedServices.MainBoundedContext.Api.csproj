@@ -155,6 +155,7 @@
     <Compile Include="Controllers\DriversController.cs" />
     <Compile Include="Controllers\InfractionTypesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Filters\ValidationActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

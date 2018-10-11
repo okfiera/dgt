@@ -143,7 +143,6 @@
             this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCancel.BackColor = System.Drawing.Color.LavenderBlush;
             this.cmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdCancel.Image = global::Presentation.Windows.UI.Properties.Resources.cancel;
             this.cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdCancel.Location = new System.Drawing.Point(221, 200);
             this.cmdCancel.Name = "cmdCancel";
@@ -158,7 +157,6 @@
             this.cmdAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAccept.BackColor = System.Drawing.Color.Honeydew;
             this.cmdAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAccept.Image = global::Presentation.Windows.UI.Properties.Resources.ok;
             this.cmdAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdAccept.Location = new System.Drawing.Point(383, 200);
             this.cmdAccept.Name = "cmdAccept";

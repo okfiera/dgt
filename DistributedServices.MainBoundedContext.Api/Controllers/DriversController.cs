@@ -45,10 +45,10 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
         }
 
         [HttpGet]
-        [Route("api/drivers/nif/{nif}")]
-        public IHttpActionResult Nif(string nif)
+        [Route("api/drivers/identifier/{identifier}")]
+        public IHttpActionResult Nif(string identifier)
         {
-            var driverDTO = this._dgtAppService.GetDriverByNifNie(nif);
+            var driverDTO = this._dgtAppService.GetDriverByNifNie(identifier);
             return Ok(driverDTO);
         }
 

@@ -70,6 +70,24 @@ namespace Infrastructure.GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Driver width identifier {0} max vehicles exceed ({1}).
+        /// </summary>
+        public static string exception_DriverMaxVehicles {
+            get {
+                return ResourceManager.GetString("exception_DriverMaxVehicles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} width identifier {1} does not exists.
+        /// </summary>
+        public static string exception_EntityWithIdNotExists {
+            get {
+                return ResourceManager.GetString("exception_EntityWithIdNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Already exists other {0} with property {1} &apos;{2}&apos;.
         /// </summary>
         public static string exception_ItemAlreadyExistsWithProperty {

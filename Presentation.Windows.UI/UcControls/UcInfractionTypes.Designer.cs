@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcInfractionTypes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcInfractionTypes));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmdClearLocalFilter = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmdAddNewInfractionType = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.infractionTypeDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label5 = new System.Windows.Forms.Label();
+            this.cmdClearLocalFilter = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionTypeDTOBindingSource)).BeginInit();
@@ -70,19 +70,6 @@
             this.label2.Size = new System.Drawing.Size(241, 27);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tipos de infracción";
-            // 
-            // cmdClearLocalFilter
-            // 
-            this.cmdClearLocalFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdClearLocalFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdClearLocalFilter.Image = ((System.Drawing.Image)(resources.GetObject("cmdClearLocalFilter.Image")));
-            this.cmdClearLocalFilter.Location = new System.Drawing.Point(312, 70);
-            this.cmdClearLocalFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmdClearLocalFilter.Name = "cmdClearLocalFilter";
-            this.cmdClearLocalFilter.Size = new System.Drawing.Size(23, 24);
-            this.cmdClearLocalFilter.TabIndex = 20;
-            this.cmdClearLocalFilter.UseVisualStyleBackColor = true;
-            this.cmdClearLocalFilter.Click += new System.EventHandler(this.cmdClearLocalFilter_Click);
             // 
             // txtFilter
             // 
@@ -141,6 +128,18 @@
             this.cmdAddNewInfractionType.UseVisualStyleBackColor = true;
             this.cmdAddNewInfractionType.Click += new System.EventHandler(this.cmdAddNewInfractionType_Click);
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label5.Location = new System.Drawing.Point(341, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 17);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Pulsar ENTER para buscar";
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -176,16 +175,18 @@
             // 
             this.infractionTypeDTOBindingSource.DataSource = typeof(Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO);
             // 
-            // label5
+            // cmdClearLocalFilter
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Italic);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label5.Location = new System.Drawing.Point(341, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 17);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Pulsar ENTER para buscar";
+            this.cmdClearLocalFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdClearLocalFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdClearLocalFilter.Image = ((System.Drawing.Image)(resources.GetObject("cmdClearLocalFilter.Image")));
+            this.cmdClearLocalFilter.Location = new System.Drawing.Point(312, 70);
+            this.cmdClearLocalFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmdClearLocalFilter.Name = "cmdClearLocalFilter";
+            this.cmdClearLocalFilter.Size = new System.Drawing.Size(23, 24);
+            this.cmdClearLocalFilter.TabIndex = 20;
+            this.cmdClearLocalFilter.UseVisualStyleBackColor = true;
+            this.cmdClearLocalFilter.Click += new System.EventHandler(this.cmdClearLocalFilter_Click);
             // 
             // UcInfractionTypes
             // 

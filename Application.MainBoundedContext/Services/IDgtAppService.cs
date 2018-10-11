@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
+using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
 
 namespace Application.MainBoundedContext.Services
 {
@@ -29,6 +30,8 @@ namespace Application.MainBoundedContext.Services
         #endregion
 
 
+        //-----------------------------------------------------------------------
+
 
         #region Infraction types
 
@@ -47,6 +50,8 @@ namespace Application.MainBoundedContext.Services
 
         #endregion
 
+
+        //-----------------------------------------------------------------------
 
 
         #region Drivers
@@ -80,6 +85,43 @@ namespace Application.MainBoundedContext.Services
         DriverDTO AddNewDriver(DriverDTO driver);
 
         #endregion
+
+
+        //-----------------------------------------------------------------------
+
+
+        #region Vehicles
+
+        /// <summary>
+        /// Get vehicle by Id
+        /// </summary>
+        /// <param name="id">Vehicle id</param>
+        /// <returns>Vehicle representation that match</returns>
+        VehicleDTO GetVehicleById(Guid id);
+
+        /// <summary>
+        /// Get vehicle by license
+        /// </summary>
+        /// <param name="license">Vehicle license plate</param>
+        /// <returns>Vehicle representation that match</returns>
+        VehicleDTO GetVehicleByLicense(string license);
+
+        /// <summary>
+        /// Add new Vehicle
+        /// </summary>
+        /// <param name="vehicle">Vehicle to add</param>
+        /// <returns>Vehicle representation created</returns>
+        VehicleDTO AddNewVehicle(VehicleDTO vehicle);
+
+        /// <summary>
+        /// Search vehicles
+        /// </summary>
+        /// <param name="filter">Filter to search</param>
+        /// <returns>Vehicle representation</returns>
+        List<VehicleDTO> SearchVehicles(string filter);
+
+        #endregion
+
 
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleDriverAgg;
 using Domain.Seedwork;
 using Infrastructure.GlobalResources;
 
@@ -13,6 +14,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
 {
     public class Vehicle: Entity, IValidatableObject
     {
+
         #region Properties
 
         /// <summary>
@@ -32,7 +34,7 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
         /// </summary>
         public string Model { get; set; }
 
-        #endregion
+  #endregion
 
 
         #region Public methods

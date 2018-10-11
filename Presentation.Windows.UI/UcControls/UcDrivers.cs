@@ -47,8 +47,8 @@ namespace Presentation.Windows.UI.UcControls
             var driverAdded = frmAddNewDriver.AddNewDriver();
             if (frmAddNewDriver.DialogResult == DialogResult.OK && driverAdded != null)
             {
-                this.drivers.Add(driverAdded);
-                this.driverDTOBindingSource.Add(driverAdded);
+                this.txtFilter.Text = driverAdded.Identifier;
+                this.SearchDrivers(driverAdded.Identifier);
             }
         }
 
@@ -67,16 +67,11 @@ namespace Presentation.Windows.UI.UcControls
 
                 e.Handled = true;
 
-                if (!String.IsNullOrEmpty(filter))
-                {
-                    this.drivers = await ApiManagerDrivers.Search(filter);
-                    if (drivers == null || !drivers.Any())
-                        MessageBox.Show("No se ha encontrado ningún resultado", "Búsqueda de conductores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    else
-                        this.driverDTOBindingSource.DataSource = drivers;
-                }
+                this.SearchDrivers(filter);
             }
         }
+
+
 
         private void cmdClearLocalFilter_Click(object sender, EventArgs e)
         {
@@ -90,6 +85,18 @@ namespace Presentation.Windows.UI.UcControls
 
 
         #region Private methods
+
+        private async void SearchDrivers(string filter)
+        {
+            if (!String.IsNullOrEmpty(filter))
+            {
+                this.drivers = await ApiManagerDrivers.Search(filter);
+                if (drivers == null || !drivers.Any())
+                    MessageBox.Show("No se ha encontrado ningún resultado", "Búsqueda de conductores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                    this.driverDTOBindingSource.DataSource = drivers;
+            }
+        }
 
         private void SetResources()
         {

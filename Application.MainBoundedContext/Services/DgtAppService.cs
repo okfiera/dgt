@@ -292,28 +292,31 @@ namespace Application.MainBoundedContext.Services
 
             // Cast dto to vehicle and save
             var vehicle = MaterializeVehicleFromDto(vehicleDTO);
-
             vehicle.GenerateNewIdentity();
-            vehicle.Validate();
-            _vehicleRepository.Add(vehicle);
-            _vehicleRepository.UnitOfWork.Commit();
-
-
-
+            
             // Add habitual driver
             var driver = _driverRepository.Get(vehicleDTO.DriverId);
             if (driver == null)
                 throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
                     Names.Driver, vehicleDTO.DriverId));
 
-            // Add VehicleDriver item
-            var vehicleDriver = new VehicleDriver {DriverId = driver.Id, VehicleId = vehicle.Id};
-            vehicleDriver.GenerateNewIdentity();
-            _vehicleDriverRepository.Add(vehicleDriver);
+            // Check driver vehicles
+            var driverVehicles = _vehicleDriverRepository.GetFiltered(vd => vd.DriverId == driver.Id);
+            if (driverVehicles.Count() > 10)
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_DriverMaxVehicles,
+                    driver.Identifier, 10));
 
-            
+            // Add VehicleDriver item
+            var vehicleDriver = new VehicleDriver() {VehicleId = vehicle.Id, DriverId = driver.Id};
+            vehicleDriver.GenerateNewIdentity();
+
+            // Validate items and save
+            vehicle.Validate();
             vehicleDriver.Validate();
 
+            _vehicleRepository.Add(vehicle);
+            _vehicleRepository.UnitOfWork.Commit();
+            _vehicleDriverRepository.Add(vehicleDriver);
             _vehicleDriverRepository.UnitOfWork.Commit();
 
             return vehicle.ProjectedAs<VehicleDTO>();
