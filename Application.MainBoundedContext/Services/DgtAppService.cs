@@ -9,6 +9,7 @@ using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.Infractions;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
+using Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers;
 using Application.Seedwork;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
@@ -127,7 +128,7 @@ namespace Application.MainBoundedContext.Services
         {
             IEnumerable<InfractionType> infractionTypes = _infractionTypeRepository.GetAll();
             if (infractionTypes != null && infractionTypes.Any())
-                return infractionTypes.ProjectedAsCollection<InfractionTypeDTO>();
+                return infractionTypes.OrderBy(i => i.Name).ProjectedAsCollection<InfractionTypeDTO>();
             else
                 return null;
         }
@@ -432,6 +433,59 @@ namespace Application.MainBoundedContext.Services
             var results = _infractionRepository.AllMatching(specs);
             if (results != null && results.Any())
                 return results.ProjectedAsCollection<InfractionDTO>();
+            else
+                return null;
+        }
+
+        #endregion
+
+
+
+
+
+        #region VehicleDriver methods
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <param name="driverIdentifier"><see cref="IDgtAppService"/></param>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<VehicleDriverDTO> GetVehiclesByDriver(string driverIdentifier)
+        {
+            if (!String.IsNullOrEmpty(driverIdentifier))
+            {
+                var results =
+                    _vehicleDriverRepository.GetFiltered(d =>
+                        d.Driver.Identifier.ToLower() == driverIdentifier.ToLower());
+
+                if (results != null && results.Any())
+                    return results.OrderBy(d => d.Vehicle.License).ProjectedAsCollection<VehicleDriverDTO>();
+                else
+                    return null;
+            }
+            else
+                return null;
+
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <param name="vehicleLicense"><see cref="IDgtAppService"/></param>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<VehicleDriverDTO> GetDriversByVehicle(string vehicleLicense)
+        {
+            if (!String.IsNullOrEmpty(vehicleLicense))
+            {
+                var results =
+                    _vehicleDriverRepository.GetFiltered(d =>
+                        d.Vehicle.License.ToLower() == vehicleLicense.ToLower());
+
+                if (results != null && results.Any())
+                    return results.OrderBy(d => d.Vehicle.License).ProjectedAsCollection<VehicleDriverDTO>();
+                else
+                    return null;
+            }
             else
                 return null;
         }

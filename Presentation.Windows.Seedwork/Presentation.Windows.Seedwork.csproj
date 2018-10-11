@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Api\ApiManagerBrands.cs" />
     <Compile Include="Api\ApiManagerDrivers.cs" />
+    <Compile Include="Api\ApiManagerInfractions.cs" />
     <Compile Include="Api\ApiManagerInfractionTypes.cs" />
     <Compile Include="Api\ApiManagerVehicles.cs" />
     <Compile Include="Api\_ApiResult.cs" />

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
+using Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers;
 using Newtonsoft.Json;
 
 namespace Presentation.Windows.Seedwork.Api
@@ -49,6 +50,29 @@ namespace Presentation.Windows.Seedwork.Api
                         else
                         {
                             var item = JsonConvert.DeserializeObject<VehicleDTO>(result);
+                            return item;
+                        }
+                    }
+                    else
+                        throw new Exception(GetHttpError(response));
+                }
+            }
+        }
+
+        public static async Task<VehicleDriverDTO> GetByDriverIdentifier(string identifier)
+        {
+            using (var client = GetHttpClient())
+            {
+                using (var response = await client.GetAsync(URL_KEY + "/drivers/" + identifier))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        if (result == null || result == "null")
+                            return null;
+                        else
+                        {
+                            var item = JsonConvert.DeserializeObject<VehicleDriverDTO>(result);
                             return item;
                         }
                     }

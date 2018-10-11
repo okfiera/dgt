@@ -62,6 +62,14 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
             return Ok(vehicleDTO);
         }
 
+        [HttpGet]
+        [Route("api/vehicles/driver/{identifier}")]
+        public IHttpActionResult GetVehicleDrivers(string license)
+        {
+            var vehicleDTO = this._dgtAppService.GetVehiclesByDriver(license);
+            return Ok(vehicleDTO);
+        }
+
         [HttpPost]
         [Route("api/vehicles/save")]
         public IHttpActionResult Save(VehicleDTO dto)

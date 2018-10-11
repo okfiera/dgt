@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
 using Application.MainBoundedContext.DTO.DgtModule.Infractions;
+using Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers;
 
 namespace Application.MainBoundedContext.Services
 {
@@ -149,6 +150,29 @@ namespace Application.MainBoundedContext.Services
         List<InfractionDTO> SearchInfractions(string vehicleLicense, string driverIdentifier, Guid? infractionTypeId, DateTime? from, DateTime? to);
 
         #endregion
+
+
+
+        #region VehicleDriver
+
+        /// <summary>
+        /// Get Vehicles by driver identifier
+        /// </summary>
+        /// <param name="driverIdentifier">Driver NIF, NIE</param>
+        /// <returns></returns>
+        List<VehicleDriverDTO> GetVehiclesByDriver(string driverIdentifier);
+
+        /// <summary>
+        /// Get Drivers by vehicle license
+        /// </summary>
+        /// <param name="vehicleLicense">Vehicle license</param>
+        /// <returns></returns>
+        List<VehicleDriverDTO> GetDriversByVehicle(string vehicleLicense);
+
+        #endregion
+
+
+
 
 
     }

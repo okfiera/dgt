@@ -9,7 +9,7 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Vehicles
     public class VehicleDTO
     {
         /// <summary>
-        /// Get or set Brand identifier
+        /// Get or set Vehicle identifier
         /// </summary>
         public Guid Id { get; set; }
 
