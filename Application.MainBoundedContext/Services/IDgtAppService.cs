@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
+using Application.MainBoundedContext.DTO.DgtModule.Infractions;
 
 namespace Application.MainBoundedContext.Services
 {
@@ -40,6 +41,7 @@ namespace Application.MainBoundedContext.Services
         /// </summary>
         /// <returns>List of infraction type representations</returns>
         List<InfractionTypeDTO> GetAllInfractionTypes();
+
 
         /// <summary>
         /// Add new Infraction type
@@ -119,6 +121,32 @@ namespace Application.MainBoundedContext.Services
         /// <param name="filter">Filter to search</param>
         /// <returns>Vehicle representation</returns>
         List<VehicleDTO> SearchVehicles(string filter);
+
+        #endregion
+
+
+        //-----------------------------------------------------------------------
+
+
+        #region Infractions
+
+        /// <summary>
+        /// Add new Infraction
+        /// </summary>
+        /// <param name="dto">Infraction representation to create</param>
+        /// <returns>Infraction representation created</returns>
+        InfractionDTO AddNewInfraction(InfractionDTO dto);
+
+        /// <summary>
+        /// Search infractions
+        /// </summary>
+        /// <param name="vehicleLicense">Vehicle license plate filter</param>
+        /// <param name="driverIdentifier">Driver NIF / NIE</param>
+        /// <param name="infractionTypeId">Infraction type filter</param>
+        /// <param name="from">Infraction from date filter</param>
+        /// <param name="to">Infraction to date filter</param>
+        /// <returns>Infractions representations that match</returns>
+        List<InfractionDTO> SearchInfractions(string vehicleLicense, string driverIdentifier, Guid? infractionTypeId, DateTime? from, DateTime? to);
 
         #endregion
 

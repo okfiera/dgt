@@ -54,8 +54,6 @@ namespace Presentation.Windows.UI.UcControls
 
         private async void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
-
             if (e.KeyChar == (char)Keys.Escape)
             {
                 this.txtFilter.Text = "";

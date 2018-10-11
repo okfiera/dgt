@@ -53,6 +53,23 @@ namespace Presentation.Windows.UI.UcControls
             }
         }
 
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                this.txtFilter.Text = "";
+                e.Handled = true;
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                var filter = this.txtFilter.Text;
+
+                e.Handled = true;
+
+                this.SearchVehicles(filter);
+            }
+        }
+
         #endregion
 
 
@@ -77,8 +94,9 @@ namespace Presentation.Windows.UI.UcControls
             this.cmdAddNewVehicle.Image = Properties.Resources.addnew;
         }
 
+
         #endregion
 
-        
+       
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Brands;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
+using Application.MainBoundedContext.DTO.DgtModule.Infractions;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
 using Application.Seedwork;
@@ -344,6 +346,100 @@ namespace Application.MainBoundedContext.Services
 
 
 
+
+        #region Infractions methods
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public InfractionDTO AddNewInfraction(InfractionDTO infractionDTO)
+        {
+            try
+            {
+                if (infractionDTO == null)
+                    throw new ArgumentNullException("infractionDTO");
+
+                // Get associated driver
+                var driver = _driverRepository.Get(infractionDTO.DriverId);
+                if (driver == null)
+                    throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                        Names.Driver, infractionDTO.DriverId));
+
+                //Get associated vehicle
+                var vehicle = _vehicleRepository.Get(infractionDTO.VehicleId);
+                if (vehicle == null)
+                    throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                        Names.Vehicle, infractionDTO.VehicleId));
+
+                // Check vehicle belong to driver
+                var vehicleDriver =
+                    _vehicleDriverRepository.GetFiltered(vd => vd.DriverId == driver.Id && vd.VehicleId == vehicle.Id);
+                if (vehicleDriver == null || !vehicleDriver.Any())
+                    throw new InvalidOperationException(String.Format(
+                        CommonMessages.exception_VehicleDoesNowBelongToDriver,
+                        vehicle.License, driver.Identifier));
+
+                // Get associated infraction type
+                var infractionType = _infractionTypeRepository.Get(infractionDTO.InfractionTypeId);
+                if (infractionType == null)
+                    throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                        Names.InfractionType, infractionDTO.InfractionTypeId));
+
+                // Materialize infraction from dto
+                var infraction = MaterializeInfractionFromDto(infractionDTO);
+                infraction.Validate();
+                infraction.GenerateNewIdentity();
+                _infractionRepository.Add(infraction);
+
+                // Remove points to driver
+                driver.RemovePoints(infractionType.Points);
+
+                _infractionRepository.UnitOfWork.Commit();
+                _driverRepository.UnitOfWork.Commit();
+
+                return infraction.ProjectedAs<InfractionDTO>();
+            }
+            catch (ApplicationValidationErrorsException valEx)
+            {
+                string erMsg = "";
+
+                foreach (var item in valEx.ValidationErrors)
+                    erMsg += Environment.NewLine + item;
+                
+                throw new Exception(erMsg);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<InfractionDTO> SearchInfractions(string vehicleLicense, string driverIdentifier, Guid? infractionTypeId, DateTime? from, DateTime? to)
+        {
+            var vehicleLicenseSpec = InfractionSpecifications.WithVehicleLicense(vehicleLicense);
+            var driverIdentifierSpec = InfractionSpecifications.WithDriverIdentifier(driverIdentifier);
+            var infractionTypeSpec = InfractionSpecifications.WithInfractionType(infractionTypeId);
+            var dateSpec = InfractionSpecifications.WithDateRange(from, to);
+
+            var specs = vehicleLicenseSpec & driverIdentifierSpec & infractionTypeSpec & dateSpec;
+
+            var results = _infractionRepository.AllMatching(specs);
+            if (results != null && results.Any())
+                return results.ProjectedAsCollection<InfractionDTO>();
+            else
+                return null;
+        }
+
+        #endregion
+
+
+
         #endregion
 
 
@@ -384,6 +480,13 @@ namespace Application.MainBoundedContext.Services
                 vehicle.ChangeCurrentIdentity(dto.Id);
 
             return vehicle;
+        }
+
+        private Infraction MaterializeInfractionFromDto(InfractionDTO dto)
+        {
+            var infraction =
+                InfractionFactory.CreateInfraction(dto.VehicleId, dto.InfractionTypeId, dto.DriverId, dto.Date);
+            return infraction;
         }
 
         #endregion

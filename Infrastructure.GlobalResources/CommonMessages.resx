@@ -129,4 +129,7 @@
   <data name="exception_ItemAlreadyExistsWithProperty" xml:space="preserve">
     <value>Already exists other {0} with property {1} '{2}'</value>
   </data>
+  <data name="exception_VehicleDoesNowBelongToDriver" xml:space="preserve">
+    <value>Vehicle {0} does not belongs to driver {1}</value>
+  </data>
 </root>

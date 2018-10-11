@@ -95,5 +95,14 @@ namespace Infrastructure.GlobalResources {
                 return ResourceManager.GetString("exception_ItemAlreadyExistsWithProperty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle {0} does not belongs to driver {1}.
+        /// </summary>
+        public static string exception_VehicleDoesNowBelongToDriver {
+            get {
+                return ResourceManager.GetString("exception_VehicleDoesNowBelongToDriver", resourceCulture);
+            }
+        }
     }
 }

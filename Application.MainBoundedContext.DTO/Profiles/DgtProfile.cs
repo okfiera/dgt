@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Brands;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
+using Application.MainBoundedContext.DTO.DgtModule.Infractions;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
 using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
 using AutoMapper;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
+using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg;
 
@@ -34,6 +36,15 @@ namespace Application.MainBoundedContext.DTO.Profiles
             // Vehicle => VehicleDTO
             var vehicleConfig = CreateMap<Vehicle, VehicleDTO>();
             vehicleConfig.ForMember(dto => dto.BrandName, (map) => map.MapFrom(p => p.Brand.Name));
+
+            // Infraction => InfractionDTO
+            var infractionConfig = CreateMap<Infraction, InfractionDTO>();
+            infractionConfig.ForMember(dto => dto.DriverFullName, (map) => map.MapFrom(i => i.Driver.FullName));
+            infractionConfig.ForMember(dto => dto.DriverIdentifier, (map) => map.MapFrom(i => i.Driver.Identifier));
+            infractionConfig.ForMember(dto => dto.VehicleLicense, (map) => map.MapFrom(i => i.Vehicle.License));
+            infractionConfig.ForMember(dto => dto.VehicleFullName, (map) => map.MapFrom(i => i.Vehicle.Brand.Name + " " + i.Vehicle.Model));
+            infractionConfig.ForMember(dto => dto.InfractionTypeName, (map) => map.MapFrom(i => i.InfractionType.Name));
+            infractionConfig.ForMember(dto => dto.InfractionPoints, (map) => map.MapFrom(i => i.InfractionType.Points));
         }
     }
 }

@@ -26,5 +26,18 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
 
             return infraction;
         }
+
+        public static Infraction CreateInfraction(Guid vehicleId, Guid infractionTypeId, Guid driverId, DateTime date)
+        {
+            var infraction = new Infraction()
+            {
+                VehicleId = vehicleId,
+                InfractionTypeId = infractionTypeId,
+                DriverId = driverId,
+                Date = date
+            };
+
+            return infraction;
+        }
     }
 }

@@ -129,4 +129,7 @@
   <data name="exception_ItemAlreadyExistsWithProperty" xml:space="preserve">
     <value>Ya existe otro/a {0} con la misma propiedad {1} ('{2}')</value>
   </data>
+  <data name="exception_VehicleDoesNowBelongToDriver" xml:space="preserve">
+    <value>El vehículo con matrícula {0} no pertenece al conductor con NIF/NIE {1}</value>
+  </data>
 </root>

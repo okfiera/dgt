@@ -6,11 +6,11 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
     public static class InfractionSpecifications
     {
         /// <summary>
-        /// Specification for Infraction with Driver Identifier equals <param name="driverId" />
+        /// Specification for Infraction with Driver id equals <param name="driverId" />
         /// </summary>
         /// <param name="driverId">The Infraction driver identifier</param>
         /// <returns>Associated specification for this criterion</returns>
-        public static Specification<Infraction> WithDriver(Guid? driverId)
+        public static Specification<Infraction> WithDriverId(Guid? driverId)
         {
             Specification<Infraction> specification = new TrueSpecification<Infraction>();
 
@@ -22,17 +22,65 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
         }
 
         /// <summary>
-        /// Specification for Infraction with Vehicle Identifier equals <param name="driverId" />
+        /// Specification for Infraction with Driver Identifier equals <param name="driverIdentifier" />
         /// </summary>
-        /// <param name="driverId">The Infraction vehicle identifier</param>
+        /// <param name="driverIdentifier">The Infraction driver identifier</param>
         /// <returns>Associated specification for this criterion</returns>
-        public static Specification<Infraction> WithVehicle(Guid? driverId)
+        public static Specification<Infraction> WithDriverIdentifier(string driverIdentifier)
         {
             Specification<Infraction> specification = new TrueSpecification<Infraction>();
 
             //Check arguments
-            if (driverId != null && driverId != Guid.Empty)
-                specification = new DirectSpecification<Infraction>(v => v.VehicleId == driverId);
+            if (!String.IsNullOrEmpty(driverIdentifier))
+                specification = new DirectSpecification<Infraction>(v => v.Driver.Identifier.ToLower() == driverIdentifier.ToLower());
+
+            return specification;
+        }
+
+        /// <summary>
+        /// Specification for Infraction with Vehicle Id equals <param name="vehicleId" />
+        /// </summary>
+        /// <param name="vehicleId">The Infraction vehicle identifier</param>
+        /// <returns>Associated specification for this criterion</returns>
+        public static Specification<Infraction> WithVehicleId(Guid? vehicleId)
+        {
+            Specification<Infraction> specification = new TrueSpecification<Infraction>();
+
+            //Check arguments
+            if (vehicleId != null && vehicleId != Guid.Empty)
+                specification = new DirectSpecification<Infraction>(v => v.VehicleId == vehicleId);
+
+            return specification;
+        }
+
+        /// <summary>
+        /// Specification for Infraction with Vehicle license plate equals <param name="vehicleLicense" />
+        /// </summary>
+        /// <param name="vehicleLicense">The Infraction vehicle identifier</param>
+        /// <returns>Associated specification for this criterion</returns>
+        public static Specification<Infraction> WithVehicleLicense(string vehicleLicense)
+        {
+            Specification<Infraction> specification = new TrueSpecification<Infraction>();
+
+            //Check arguments
+            if (!String.IsNullOrEmpty(vehicleLicense))
+                specification = new DirectSpecification<Infraction>(v => v.Vehicle.License.ToLower() == vehicleLicense.ToLower());
+
+            return specification;
+        }
+
+        /// <summary>
+        /// Specification for Infraction with Infraction Type Id equals <param name="infractionTypeId" />
+        /// </summary>
+        /// <param name="infractionTypeId">The Infraction vehicle identifier</param>
+        /// <returns>Associated specification for this criterion</returns>
+        public static Specification<Infraction> WithInfractionType(Guid? infractionTypeId)
+        {
+            Specification<Infraction> specification = new TrueSpecification<Infraction>();
+
+            //Check arguments
+            if (infractionTypeId != null && infractionTypeId != Guid.Empty)
+                specification = new DirectSpecification<Infraction>(v => v.InfractionTypeId == infractionTypeId);
 
             return specification;
         }
@@ -55,5 +103,6 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
 
             return new DirectSpecification<Infraction>(o => o.Date >= fromD && o.Date <= toD);
         }
+        
     }
 }
