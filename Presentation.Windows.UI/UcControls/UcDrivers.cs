@@ -77,6 +77,12 @@ namespace Presentation.Windows.UI.UcControls
             this.driverDTOBindingSource.DataSource = this.drivers.OrderBy(m => m.FullName);
         }
 
+        private void driverDTOBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            GetDriverVehicles();
+            GetDriverInfractions();
+        }
+
         #endregion
 
 
@@ -96,10 +102,32 @@ namespace Presentation.Windows.UI.UcControls
             }
         }
 
+        private async void GetDriverVehicles()
+        {
+            var currentDriver = this.driverDTOBindingSource.Current as DriverDTO;
+            if (currentDriver != null)
+            {
+                var vehicles = await ApiManagerVehicles.ByDriverIdentifier(currentDriver.Identifier);
+                this.vehicleDriverDTOBindingSource.DataSource = vehicles;
+            }
+            
+        }
+
+        private async void GetDriverInfractions()
+        {
+            var currentDriver = this.driverDTOBindingSource.Current as DriverDTO;
+            if (currentDriver != null)
+            {
+                var infractions = await ApiManagerInfractions.ByDriverIdentifier(currentDriver.Identifier);
+                this.infractionDTOBindingSource.DataSource = infractions;
+            }
+        }
+
         private void SetResources()
         {
             this.cmdAddNewDriver.Image = Properties.Resources.addnew;
         }
+
 
 
         #endregion

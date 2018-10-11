@@ -62,7 +62,7 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
 
         [HttpGet]
         [Route("api/drivers/vehicle/{license}")]
-        public IHttpActionResult GetVehicleDrivers(string license)
+        public IHttpActionResult GetDriversByVehicleLicense(string license)
         {
             var vehiclesDTO = this._dgtAppService.GetDriversByVehicle(license);
             return Ok(vehiclesDTO);
