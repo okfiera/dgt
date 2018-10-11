@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.MainBoundedContext.DTO.DgtModule.Brands;
 using Application.MainBoundedContext.DTO.DgtModule.Drivers;
 using Application.MainBoundedContext.DTO.DgtModule.InfractionTypes;
+using Application.MainBoundedContext.DTO.DgtModule.Vehicles;
 using Application.Seedwork;
 using Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg;
 using Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg;
@@ -92,7 +93,7 @@ namespace Application.MainBoundedContext.Services
             // Query criteria
             IEnumerable<Brand> brands = _brandRepository.GetAll();
             if (brands != null && brands.Any())
-                return brands.ProjectedAsCollection<BrandDTO>();
+                return brands.OrderBy(m => m.Name).ProjectedAsCollection<BrandDTO>();
             else
                 return null;
         }
@@ -241,6 +242,105 @@ namespace Application.MainBoundedContext.Services
 
 
 
+
+        #region Vehicle methods
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public VehicleDTO GetVehicleById(Guid id)
+        {
+            var result = _vehicleRepository.Get(id);
+            if (result != null)
+                return result.ProjectedAs<VehicleDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public VehicleDTO GetVehicleByLicense(string license)
+        {
+            if (String.IsNullOrEmpty(license))
+                throw new ArgumentNullException("license");
+
+            var licenseSpec = VehicleSpecifications.WithLicense(license);
+            var result = _vehicleRepository.AllMatching(licenseSpec);
+            if (result != null && result.Any())
+                return result.First().ProjectedAs<VehicleDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public VehicleDTO AddNewVehicle(VehicleDTO vehicleDTO)
+        {
+            if (vehicleDTO == null)
+                throw new ArgumentNullException("vehicleDTO");
+
+            // Check vehicle license is unique
+            var licenseSpec = VehicleSpecifications.WithLicense(vehicleDTO.License);
+            var repeatedLicenseVehicle = _vehicleRepository.AllMatching(licenseSpec);
+            if (repeatedLicenseVehicle != null && repeatedLicenseVehicle.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_ItemAlreadyExistsWithProperty, Names.Vehicle, Names.License, vehicleDTO.License));
+
+            // Cast dto to vehicle and save
+            var vehicle = MaterializeVehicleFromDto(vehicleDTO);
+
+            vehicle.GenerateNewIdentity();
+            vehicle.Validate();
+            _vehicleRepository.Add(vehicle);
+            _vehicleRepository.UnitOfWork.Commit();
+
+
+
+            // Add habitual driver
+            var driver = _driverRepository.Get(vehicleDTO.DriverId);
+            if (driver == null)
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                    Names.Driver, vehicleDTO.DriverId));
+
+            // Add VehicleDriver item
+            var vehicleDriver = new VehicleDriver {DriverId = driver.Id, VehicleId = vehicle.Id};
+            vehicleDriver.GenerateNewIdentity();
+            _vehicleDriverRepository.Add(vehicleDriver);
+
+            
+            vehicleDriver.Validate();
+
+            _vehicleDriverRepository.UnitOfWork.Commit();
+
+            return vehicle.ProjectedAs<VehicleDTO>();
+        }
+
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<VehicleDTO> SearchVehicles(string filter)
+        {
+            if (String.IsNullOrEmpty(filter))
+                throw new ArgumentNullException("filter");
+
+            var fulltextSpec = VehicleSpecifications.FullText(filter);
+            var result = _vehicleRepository.AllMatching(fulltextSpec);
+            if (result != null && result.Any())
+                return result.ProjectedAsCollection<VehicleDTO>();
+            else
+                return null;
+        }
+
+        #endregion
+
+
+
         #endregion
 
 
@@ -271,6 +371,16 @@ namespace Application.MainBoundedContext.Services
                 driver.ChangeCurrentIdentity(dto.Id);
 
             return driver;
+        }
+
+        private Vehicle MaterializeVehicleFromDto(VehicleDTO dto)
+        {
+            var vehicle = VehicleFactory.CreateVehicle(dto.License, dto.BrandId, dto.Model);
+
+            if (dto.Id != Guid.Empty)
+                vehicle.ChangeCurrentIdentity(dto.Id);
+
+            return vehicle;
         }
 
         #endregion
