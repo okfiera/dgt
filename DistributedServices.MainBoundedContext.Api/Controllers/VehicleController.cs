@@ -14,6 +14,7 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
         #region Members
 
         private readonly IDgtAppService _dgtAppService;
+        public const string GuidPattern = @"^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$";
 
         #endregion
 
@@ -78,6 +79,21 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
             {
                 var result = this._dgtAppService.AddNewVehicle(dto);
                 return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/vehicles-drivers/{vehicleLicense}/{driverIdentifier}")]
+        public IHttpActionResult AttachDriverToVehicle(string vehicleLicense, string driverIdentifier)
+        {
+            try
+            {
+                var vehicleDTO = this._dgtAppService.AttachDriverToVehicle(vehicleLicense, driverIdentifier);
+                return Ok(vehicleDTO);
             }
             catch (Exception ex)
             {

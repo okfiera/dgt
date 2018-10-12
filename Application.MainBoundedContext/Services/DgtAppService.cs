@@ -214,6 +214,56 @@ namespace Application.MainBoundedContext.Services
         /// <summary>
         /// <see cref="IDgtAppService"/>
         /// </summary>
+        /// <param name="vehicleLicense"><see cref="IDgtAppService"/></param>
+        /// <param name="driverIdentifier"><see cref="IDgtAppService"/></param>
+        /// <returns></returns>
+        public VehicleDriverDTO AttachDriverToVehicle(string vehicleLicense, string driverIdentifier)
+        {
+            // Check arguments
+            if (String.IsNullOrEmpty(vehicleLicense))
+                throw new ArgumentNullException(vehicleLicense);
+
+            if (String.IsNullOrEmpty(driverIdentifier))
+                throw new ArgumentNullException(driverIdentifier);
+
+            //Get vehicle
+            Vehicle vehicle;
+            var vehicleResult = _vehicleRepository.GetFiltered(v => v.License.ToLower() == vehicleLicense.ToLower());
+            if (vehicleResult == null || !vehicleResult.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                    Names.Vehicle, vehicleLicense));
+            else
+                vehicle = vehicleResult.First();
+
+            // Get driver
+            Driver driver;
+            var driverResult = _driverRepository.GetFiltered(v => v.Identifier.ToLower() == driverIdentifier.ToLower());
+            if (driverResult == null || !driverResult.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_EntityWithIdNotExists,
+                    Names.Driver, driverIdentifier));
+            else
+                driver = driverResult.First();
+
+            // Check driver is not assigned to vehicle
+            var repeatedDriver = _vehicleDriverRepository.GetFiltered(v => v.DriverId == driver.Id && v.VehicleId == vehicle.Id);
+            if(repeatedDriver != null && repeatedDriver.Any())
+                throw new InvalidOperationException(String.Format(CommonMessages.exception_DriverAlreadyIsHabitualDriverOfVehicle,
+                    driver.Identifier, vehicle.License));
+
+            // Create assignation
+            var vd = new VehicleDriver() {DriverId = driver.Id, VehicleId = vehicle.Id};
+            vd.GenerateNewIdentity();
+
+            // Save changes
+            _vehicleDriverRepository.Add(vd);
+            _vehicleDriverRepository.UnitOfWork.Commit();
+
+            return vd.ProjectedAs<VehicleDriverDTO>();
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
         /// <returns><see cref="IDgtAppService"/></returns>
         public DriverDTO AddNewDriver(DriverDTO driverDTO)
         {

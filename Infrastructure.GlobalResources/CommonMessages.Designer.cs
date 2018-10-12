@@ -70,6 +70,15 @@ namespace Infrastructure.GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Driver with identifier {0} already is habitual driver of vehicle with license {1}.
+        /// </summary>
+        public static string exception_DriverAlreadyIsHabitualDriverOfVehicle {
+            get {
+                return ResourceManager.GetString("exception_DriverAlreadyIsHabitualDriverOfVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Driver width identifier {0} max vehicles exceed ({1}).
         /// </summary>
         public static string exception_DriverMaxVehicles {

@@ -18,6 +18,7 @@ namespace Presentation.Windows.UI.UcControls
         #region Members
 
         private List<VehicleDTO> vehicles = new List<VehicleDTO>();
+        private VehicleDTO currentVehicle;
 
         #endregion
 
@@ -38,6 +39,11 @@ namespace Presentation.Windows.UI.UcControls
         #region Control events
 
         private void UcVehicles_Load(object sender, EventArgs e)
+        {
+            SetResources();
+        }
+
+        private void UcVehicles_Enter(object sender, EventArgs e)
         {
             SetResources();
         }
@@ -70,6 +76,16 @@ namespace Presentation.Windows.UI.UcControls
             }
         }
 
+        private void vehicleDTOBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            this.currentVehicle = this.vehicleDTOBindingSource.Current as VehicleDTO;
+            if (currentVehicle != null)
+            {
+                GetInfractions(currentVehicle.License);
+                GetDrivers(currentVehicle.License);
+            }
+        }
+
         #endregion
 
 
@@ -85,17 +101,49 @@ namespace Presentation.Windows.UI.UcControls
                 if (vehicles == null || !vehicles.Any())
                     MessageBox.Show("No se ha encontrado ningún resultado", "Búsqueda de vehículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else
+                {
                     this.vehicleDTOBindingSource.DataSource = vehicles;
+                    this.vehicleDriverDTOBindingSource.MoveFirst();
+                }
             }
         }
 
         private void SetResources()
         {
             this.cmdAddNewVehicle.Image = Properties.Resources.addnew;
+            this.lnkAddDriver.Image = Properties.Resources.create16x16;
         }
 
+        private async void GetInfractions(string license)
+        {
+            var results = await ApiManagerInfractions.ByVehicleLicense(license);
+            this.infractionDTOBindingSource.DataSource = results;
+        }
 
+        private async void GetDrivers(string license)
+        {
+            var results = await ApiManagerDrivers.GetDriversByVehicleLicense(license);
+            this.vehicleDriverDTOBindingSource.DataSource = results;
+        }
+        
         #endregion
+
+        private void lnkAddDriver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (currentVehicle != null)
+            {
+                var frmAttachDriver = new FrmAttachDriver();
+                frmAttachDriver.AttachDriver(currentVehicle);
+                if (frmAttachDriver.DialogResult == DialogResult.OK)
+                {
+                    this.GetDrivers(this.currentVehicle.License);
+                }
+            }
+            else
+                MessageBox.Show("No hay ningún vehículo seleccionado", "Añadir conductor habitual",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
 
        
     }

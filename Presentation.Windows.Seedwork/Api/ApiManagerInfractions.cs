@@ -106,5 +106,28 @@ namespace Presentation.Windows.Seedwork.Api
             }
         }
 
+        public static async Task<List<InfractionDTO>> ByVehicleLicense(string license)
+        {
+            using (var client = GetHttpClient())
+            {
+                using (var response = await client.GetAsync(URL_KEY + "/vehicle/" + license))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        if (result == null || result == "null")
+                            return new List<InfractionDTO>();
+                        else
+                        {
+                            var items = JsonConvert.DeserializeObject<InfractionDTO[]>(result).ToList();
+                            return items;
+                        }
+                    }
+                    else
+                        throw new Exception(GetHttpError(response));
+                }
+            }
+        }
+
     }
 }

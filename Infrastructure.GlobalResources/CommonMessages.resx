@@ -120,6 +120,9 @@
   <data name="exception_CannotAssociateTransientOrNullEntity" xml:space="preserve">
     <value>The item you are trying associate ({0}) is null or it is not saved</value>
   </data>
+  <data name="exception_DriverAlreadyIsHabitualDriverOfVehicle" xml:space="preserve">
+    <value>Driver with identifier {0} already is habitual driver of vehicle with license {1}</value>
+  </data>
   <data name="exception_DriverMaxVehicles" xml:space="preserve">
     <value>Driver width identifier {0} max vehicles exceed ({1})</value>
   </data>

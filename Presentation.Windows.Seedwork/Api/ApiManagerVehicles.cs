@@ -106,7 +106,32 @@ namespace Presentation.Windows.Seedwork.Api
                     }
                     else
                     {
-                        //Logger.Error("Error creando {0} '{1}'.", syncEntity.Singular(), obj.Name);
+                        throw new Exception(await CastResultError(response));
+                    }
+                }
+            }
+        }
+
+        public static async Task<VehicleDriverDTO> AttachDriver(string vehicleLicense, string driverIdentifier)
+        {
+            using (var client = GetHttpClient())
+            {
+                var url = String.Format("vehicles-drivers/{0}/{1}", vehicleLicense, driverIdentifier);
+                using (var response = await client.PostAsync(url, null))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        if (response.Content != null)
+                        {
+                            var stringResult = await response.Content.ReadAsStringAsync();
+                            var result = JsonConvert.DeserializeObject<VehicleDriverDTO>(stringResult);
+                            return result;
+                        }
+                        else
+                            return null;
+                    }
+                    else
+                    {
                         throw new Exception(await CastResultError(response));
                     }
                 }

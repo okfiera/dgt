@@ -81,6 +81,14 @@ namespace Application.MainBoundedContext.Services
         DriverDTO GetDriverByNifNie(string identifier);
 
         /// <summary>
+        /// Attach driver to vehicle
+        /// </summary>
+        /// <param name="vehicleLicense">Vehicle license plate</param>
+        /// <param name="driverIdentifier">Driver identifier</param>
+        /// <returns></returns>
+        VehicleDriverDTO AttachDriverToVehicle(string vehicleLicense, string driverIdentifier);
+
+        /// <summary>
         /// Add new Driver
         /// </summary>
         /// <param name="driver">Driver to add</param>
