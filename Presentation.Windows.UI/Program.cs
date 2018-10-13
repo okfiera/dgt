@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Presentation.Windows.UI
 {
     static class Program
     {
+        public static FrmSplash frmSplash = null;
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -15,7 +19,38 @@ namespace Presentation.Windows.UI
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new FrmContainer());
+
+
+            //show splash
+            Thread splashThread = new Thread(new ThreadStart(
+                delegate
+                {
+                    frmSplash = new FrmSplash();
+                    System.Windows.Forms.Application.Run(frmSplash);
+                }
+            ));
+
+            splashThread.SetApartmentState(ApartmentState.STA);
+            splashThread.Start();
+
+
+            //run form - time taking operation
+            FrmContainer mainForm = new FrmContainer();
+            mainForm.Load += new EventHandler(mainForm_Load);
+            System.Windows.Forms.Application.Run(mainForm);
+        }
+
+        static void mainForm_Load(object sender, EventArgs e)
+        {
+            //close splash
+            if (frmSplash == null)
+            {
+                return;
+            }
+
+            frmSplash.Invoke(new Action(frmSplash.Close));
+            frmSplash.Dispose();
+            frmSplash = null;
         }
     }
 }

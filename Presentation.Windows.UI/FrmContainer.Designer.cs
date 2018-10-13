@@ -199,6 +199,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmContainer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DGT - Gestión de infracciones";
             this.Load += new System.EventHandler(this.FrmContainer_Load);
             this.panel1.ResumeLayout(false);

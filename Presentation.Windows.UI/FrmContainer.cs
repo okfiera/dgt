@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation.Windows.Seedwork.Api;
 using Presentation.Windows.UI.UcControls;
 
 namespace Presentation.Windows.UI
@@ -134,10 +136,18 @@ namespace Presentation.Windows.UI
         public FrmContainer()
         {
             InitializeComponent();
+
+            this.InitializeContext();
+
+            Thread.Sleep(1000);
         }
 
 
-
+        private async void InitializeContext()
+        {
+            // Call api to initialize context
+            await ApiManagerBrands.GetAllBrands();
+        }
 
         #endregion
 

@@ -38,3 +38,4 @@ D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.SecondaryForms.FrmAddNewVehicle.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.SecondaryForms.FrmAddNewInfraction.resources
 D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.SecondaryForms.FrmAttachDriver.resources
+D:\Projects\prueba-is\DGT\Presentation.Windows.UI\obj\Debug\Presentation.Windows.UI.FrmSplash.resources
