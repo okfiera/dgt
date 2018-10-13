@@ -96,7 +96,7 @@ namespace Application.MainBoundedContext.Services
             // Query criteria
             IEnumerable<Brand> brands = _brandRepository.GetAll();
             if (brands != null && brands.Any())
-                return brands.OrderBy(m => m.Name).ProjectedAsCollection<BrandDTO>();
+                return brands.OrderByDescending(m => m.CreatedDate).ProjectedAsCollection<BrandDTO>();
             else
                 return null;
         }
@@ -128,7 +128,7 @@ namespace Application.MainBoundedContext.Services
         {
             IEnumerable<InfractionType> infractionTypes = _infractionTypeRepository.GetAll();
             if (infractionTypes != null && infractionTypes.Any())
-                return infractionTypes.OrderBy(i => i.Name).ProjectedAsCollection<InfractionTypeDTO>();
+                return infractionTypes.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<InfractionTypeDTO>();
             else
                 return null;
         }
@@ -150,6 +150,7 @@ namespace Application.MainBoundedContext.Services
             // Cast and save item
             var infractionType = MaterializeInfractionTypeFromDto(infractionTypeDTO);
             infractionType.GenerateNewIdentity();
+            infractionType.CreatedDate = DateTime.Now;
             infractionType.Validate();
 
             _infractionTypeRepository.Add(infractionType);
@@ -176,7 +177,7 @@ namespace Application.MainBoundedContext.Services
             var fulltextSpec = DriverSpecifications.FullText(filter);
             var result = _driverRepository.AllMatching(fulltextSpec);
             if (result != null && result.Any())
-                return result.ProjectedAsCollection<DriverDTO>();
+                return result.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<DriverDTO>();
             else
                 return null;
         }
@@ -283,6 +284,7 @@ namespace Application.MainBoundedContext.Services
             driver.SetInitialPoints();
 
             driver.GenerateNewIdentity();
+            driver.CreatedDate = DateTime.Now;
             driver.Validate();
 
             _driverRepository.Add(driver);
@@ -362,6 +364,7 @@ namespace Application.MainBoundedContext.Services
             // Add VehicleDriver item
             var vehicleDriver = new VehicleDriver() {VehicleId = vehicle.Id, DriverId = driver.Id};
             vehicleDriver.GenerateNewIdentity();
+            vehicleDriver.CreatedDate = DateTime.Now;
 
             // Validate items and save
             vehicle.Validate();
@@ -388,7 +391,7 @@ namespace Application.MainBoundedContext.Services
             var fulltextSpec = VehicleSpecifications.FullText(filter);
             var result = _vehicleRepository.AllMatching(fulltextSpec);
             if (result != null && result.Any())
-                return result.ProjectedAsCollection<VehicleDTO>();
+                return result.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<VehicleDTO>();
             else
                 return null;
         }
@@ -441,6 +444,7 @@ namespace Application.MainBoundedContext.Services
                 var infraction = MaterializeInfractionFromDto(infractionDTO);
                 infraction.Validate();
                 infraction.GenerateNewIdentity();
+                infraction.CreatedDate = DateTime.Now;
                 _infractionRepository.Add(infraction);
 
                 // Remove points to driver
@@ -482,7 +486,40 @@ namespace Application.MainBoundedContext.Services
 
             var results = _infractionRepository.AllMatching(specs);
             if (results != null && results.Any())
-                return results.ProjectedAsCollection<InfractionDTO>();
+                return results.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<InfractionDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <param name="count"><see cref="IDgtAppService"/></param>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<InfractionDTO> GetLastInfractions(int count)
+        {
+            var results = _infractionRepository.GetAll().OrderByDescending(i => i.CreatedDate).Take(count);
+            if (results != null && results.Any())
+                return results.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<InfractionDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public List<InfractionStatsDTO> GetInfractionStats()
+        {
+            var stats =  _infractionRepository.GetInfractionsStats();
+            if (stats != null && stats.Any())
+            {
+                var result = new List<InfractionStatsDTO>();
+                foreach (var s in stats)
+                    result.Add(new InfractionStatsDTO { Name = s.Name, Count = s.Count });
+
+                return result;
+            }
             else
                 return null;
         }
@@ -509,7 +546,7 @@ namespace Application.MainBoundedContext.Services
                         d.Driver.Identifier.ToLower() == driverIdentifier.ToLower());
 
                 if (results != null && results.Any())
-                    return results.OrderBy(d => d.Vehicle.License).ProjectedAsCollection<VehicleDriverDTO>();
+                    return results.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<VehicleDriverDTO>();
                 else
                     return null;
             }
@@ -532,7 +569,7 @@ namespace Application.MainBoundedContext.Services
                         d.Vehicle.License.ToLower() == vehicleLicense.ToLower());
 
                 if (results != null && results.Any())
-                    return results.OrderBy(d => d.Vehicle.License).ProjectedAsCollection<VehicleDriverDTO>();
+                    return results.OrderByDescending(i => i.CreatedDate).ProjectedAsCollection<VehicleDriverDTO>();
                 else
                     return null;
             }
@@ -557,6 +594,7 @@ namespace Application.MainBoundedContext.Services
             {
                 Name = dto.Name,
                 Points = dto.Points,
+                CreatedDate = dto.CreatedDate,
                 Description = dto.Description
             };
 
@@ -569,6 +607,7 @@ namespace Application.MainBoundedContext.Services
         private Driver MaterializeDriverFromDto(DriverDTO dto)
         {
             var driver = DriverFactory.CreateDriver(dto.Identifier, dto.FirstName, dto.LastName, dto.Points);
+            driver.CreatedDate = dto.CreatedDate;
 
             if (dto.Id != Guid.Empty)
                 driver.ChangeCurrentIdentity(dto.Id);
@@ -579,6 +618,7 @@ namespace Application.MainBoundedContext.Services
         private Vehicle MaterializeVehicleFromDto(VehicleDTO dto)
         {
             var vehicle = VehicleFactory.CreateVehicle(dto.License, dto.BrandId, dto.Model);
+            vehicle.CreatedDate = dto.CreatedDate;
 
             if (dto.Id != Guid.Empty)
                 vehicle.ChangeCurrentIdentity(dto.Id);
@@ -590,6 +630,7 @@ namespace Application.MainBoundedContext.Services
         {
             var infraction =
                 InfractionFactory.CreateInfraction(dto.VehicleId, dto.InfractionTypeId, dto.DriverId, dto.Date);
+            infraction.CreatedDate = dto.CreatedDate;
             return infraction;
         }
 

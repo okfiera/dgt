@@ -11,7 +11,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleDriverAgg
 {
-    public class VehicleDriver : Entity, IValidatableObject
+    public class VehicleDriver : BaseEntity, IValidatableObject
     {
         #region Members
         #endregion

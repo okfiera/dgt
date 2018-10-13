@@ -12,7 +12,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
 {
-    public class Infraction: Entity, IValidatableObject
+    public class Infraction: BaseEntity, IValidatableObject
     {
         #region Properties
 

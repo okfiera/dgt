@@ -9,7 +9,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.BrandAgg
 {
-    public class Brand: Entity, IValidatableObject
+    public class Brand: BaseEntity, IValidatableObject
     {
         #region Properties
 

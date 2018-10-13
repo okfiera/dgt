@@ -9,5 +9,10 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
 {
     public interface IInfractionRepository:IRepository<Infraction>
     {
+        /// <summary>
+        /// Get Infractions grouped by Type
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<InfractionStats> GetInfractionsStats();
     }
 }

@@ -157,6 +157,19 @@ namespace Application.MainBoundedContext.Services
         /// <returns>Infractions representations that match</returns>
         List<InfractionDTO> SearchInfractions(string vehicleLicense, string driverIdentifier, Guid? infractionTypeId, DateTime? from, DateTime? to);
 
+        /// <summary>
+        /// Get last number of infractions
+        /// </summary>
+        /// <param name="count">Number of elements to show</param>
+        /// <returns>Infraction representations</returns>
+        List<InfractionDTO> GetLastInfractions(int count);
+
+        /// <summary>
+        /// Get infraction stats
+        /// </summary>
+        /// <returns>Infraction stats representation</returns>
+        List<InfractionStatsDTO> GetInfractionStats();
+
         #endregion
 
 

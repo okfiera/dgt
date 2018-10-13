@@ -27,5 +27,10 @@ namespace Application.MainBoundedContext.DTO.DgtModule.InfractionTypes
         /// Infraction type description
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Get or set Created date
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
     }
 }

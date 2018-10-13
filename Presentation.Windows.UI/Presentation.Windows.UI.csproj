@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -171,6 +172,7 @@
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Brands.BrandDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Drivers.DriverDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionStatsDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Vehicles.VehicleDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers.VehicleDriverDTO.datasource" />

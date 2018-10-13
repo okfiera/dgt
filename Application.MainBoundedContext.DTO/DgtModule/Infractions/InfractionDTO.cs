@@ -62,5 +62,10 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Infractions
         /// Get or set infraction date
         /// </summary>
         public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Get or set Created date
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
     }
 }

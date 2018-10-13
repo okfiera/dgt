@@ -48,7 +48,7 @@ namespace Application.MainBoundedContext.DTO.Profiles
             infractionConfig.ForMember(dto => dto.VehicleFullName, (map) => map.MapFrom(i => i.Vehicle.Brand.Name + " " + i.Vehicle.Model));
             infractionConfig.ForMember(dto => dto.InfractionTypeName, (map) => map.MapFrom(i => i.InfractionType.Name));
             infractionConfig.ForMember(dto => dto.InfractionPoints, (map) => map.MapFrom(i => i.InfractionType.Points));
-
+            
             // VehicleDriver => VehicleDriverDTO
             var vehicleDriverConfig = CreateMap<VehicleDriver, VehicleDriverDTO>();
             vehicleDriverConfig.ForMember(dto => dto.VehicleLicense, (map) => map.MapFrom(i => i.Vehicle.License));

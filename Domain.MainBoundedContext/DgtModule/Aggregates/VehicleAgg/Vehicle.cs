@@ -12,7 +12,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
 {
-    public class Vehicle: Entity, IValidatableObject
+    public class Vehicle: BaseEntity, IValidatableObject
     {
 
         #region Properties

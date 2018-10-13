@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Application.MainBoundedContext.DTO.DgtModule.Brands
 {
-    [Serializable]
     public class BrandDTO
     {
 
@@ -19,5 +18,12 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Brands
         /// Get or set the Brand name
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Get or set Created date
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
+
+        
     }
 }

@@ -129,5 +129,51 @@ namespace Presentation.Windows.Seedwork.Api
             }
         }
 
+        public static async Task<List<InfractionDTO>> GetLast(int count)
+        {
+            using (var client = GetHttpClient())
+            {
+                using (var response = await client.GetAsync(URL_KEY + "/last/" + count))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        if (result == null || result == "null")
+                            return new List<InfractionDTO>();
+                        else
+                        {
+                            var items = JsonConvert.DeserializeObject<InfractionDTO[]>(result).ToList();
+                            return items;
+                        }
+                    }
+                    else
+                        throw new Exception(GetHttpError(response));
+                }
+            }
+        }
+
+        public static async Task<List<InfractionStatsDTO>> GetStats()
+        {
+            using (var client = GetHttpClient())
+            {
+                using (var response = await client.GetAsync(URL_KEY + "/stats"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        if (result == null || result == "null")
+                            return new List<InfractionStatsDTO>();
+                        else
+                        {
+                            var items = JsonConvert.DeserializeObject<InfractionStatsDTO[]>(result).ToList();
+                            return items;
+                        }
+                    }
+                    else
+                        throw new Exception(GetHttpError(response));
+                }
+            }
+        }
+
     }
 }

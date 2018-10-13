@@ -23,5 +23,34 @@ namespace Infrastructure.Data.MainBoundedContext.DgtModule.Repositories
         }
 
         #endregion
+
+
+        #region IInfractionRepository implementation
+
+        /// <summary>
+        /// <see cref="IInfractionRepository"/>
+        /// </summary>
+        /// <returns><see cref="IInfractionRepository"/></returns>
+        public IEnumerable<InfractionStats> GetInfractionsStats()
+        {
+            var currentUnitOfWork = this.UnitOfWork as MainBCUnitOfWork;
+            var set = currentUnitOfWork.CreateSet<Infraction>();
+            
+            var result = set
+                .GroupBy(n => n.InfractionType.Name)
+                .Select(n => new InfractionStats()
+                    {
+                        Name= n.Key,
+                        Count = n.Count()
+                    }
+                )
+                .OrderBy(n => n.Name);
+
+            return result;
+        }
+
+        #endregion
+
+
     }
 }

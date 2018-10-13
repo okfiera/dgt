@@ -9,7 +9,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionTypeAg
 {
-    public class InfractionType: Entity, IValidatableObject
+    public class InfractionType: BaseEntity, IValidatableObject
     {
         #region Members
 

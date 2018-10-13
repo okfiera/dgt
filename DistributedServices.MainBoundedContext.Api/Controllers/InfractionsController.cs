@@ -67,12 +67,42 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
         }
 
         [HttpGet]
+        [Route("api/infractions/last/{count}")]
+        public IHttpActionResult GetLastInfractions(int count = 15)
+        {
+            try
+            {
+                var results = _dgtAppService.GetLastInfractions(count);
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
         [Route("api/infractions/vehicle/{vehicleLicense}")]
         public IHttpActionResult GetInfractionsByLicense(string vehicleLicense)
         {
             try
             {
                 var results = _dgtAppService.SearchInfractions(vehicleLicense, "", null, null, null);
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/infractions/stats")]
+        public IHttpActionResult GetInfractionStats()
+        {
+            try
+            {
+                var results = _dgtAppService.GetInfractionStats();
                 return Ok(results);
             }
             catch (Exception ex)

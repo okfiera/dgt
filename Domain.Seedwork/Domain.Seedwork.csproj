@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggRootEntity.cs" />
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="Dynamic.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Enums.cs" />

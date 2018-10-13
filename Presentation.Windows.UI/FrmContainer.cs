@@ -89,6 +89,7 @@ namespace Presentation.Windows.UI
             {
                 case Option.Home:
                     if (UcHome == null) UcHome = new UcHome();
+                    UcHome.RefreshControl();
                     currentControl = UcHome;
                     break;
 

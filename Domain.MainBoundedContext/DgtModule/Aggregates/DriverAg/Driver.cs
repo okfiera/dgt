@@ -10,7 +10,7 @@ using Infrastructure.GlobalResources;
 
 namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
 {
-    public class Driver: Entity, IValidatableObject
+    public class Driver: BaseEntity, IValidatableObject
     {
         #region Members
 

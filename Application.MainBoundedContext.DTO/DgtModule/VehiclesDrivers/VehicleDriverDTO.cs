@@ -47,5 +47,10 @@ namespace Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers
         /// Associated Driver Points
         /// </summary>
         public int DriverPoints { get; set; }
+
+        /// <summary>
+        /// Get or set Created date
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
     }
 }

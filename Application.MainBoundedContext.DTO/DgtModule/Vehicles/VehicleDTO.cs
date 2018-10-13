@@ -42,5 +42,10 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Vehicles
         /// Get or ser habitual driver
         /// </summary>
         public Guid DriverId { get; set; }
+
+        /// <summary>
+        /// Get or set Created date
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
     }
 }
