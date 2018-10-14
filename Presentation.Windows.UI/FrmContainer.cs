@@ -137,6 +137,8 @@ namespace Presentation.Windows.UI
         {
             InitializeComponent();
 
+            SetResources();
+
             this.InitializeContext();
 
             Thread.Sleep(1000);
@@ -148,10 +150,20 @@ namespace Presentation.Windows.UI
             // Call api to initialize context
             await ApiManagerBrands.GetAllBrands();
         }
+        private void SetResources()
+        {
+            this.tsbInicio.Image = Properties.Resources.home;
+            this.tsbInfractionTypes.Image = Properties.Resources.infraction_types;
+            this.tsbInfractions.Image = Properties.Resources.infractions;
+            this.tsbDrivers.Image = Properties.Resources.drivers;
+            this.tsbVehicles.Image = Properties.Resources.vehicles;
+            this.tsbBrands.Image = Properties.Resources.brands;
+            this.tsbExit.Image = Properties.Resources.exit;
+        }
 
         #endregion
 
-       
-        
+
+
     }
 }

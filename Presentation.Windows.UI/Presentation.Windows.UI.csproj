@@ -248,6 +248,27 @@
   <ItemGroup>
     <None Include="Resources\loading160x24.GIF" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vehicles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infractions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infraction-types.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
