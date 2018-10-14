@@ -7,19 +7,22 @@ namespace Infrastructure.Data.MainBoundedContext.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Infrastructure.Data.MainBoundedContext.UnitOfWork.MainBCUnitOfWork>
+    internal sealed class Configuration : DbMigrationsConfiguration<UnitOfWork.MainBCUnitOfWork>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Infrastructure.Data.MainBoundedContext.UnitOfWork.MainBCUnitOfWork context)
+        protected override void Seed(UnitOfWork.MainBCUnitOfWork context)
         {
+            // Custom indexes
+            //Create custom Indexes
+            CustomIndexes.CreateCustomIndexes(context);
+
             //DgtModule entities
             InitialDataBrands.Seed(context);
-
-
+            
             context.SaveChanges();
         }
     }

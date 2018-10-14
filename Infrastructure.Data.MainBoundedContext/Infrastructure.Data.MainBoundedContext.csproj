@@ -63,6 +63,7 @@
       <DependentUpon>201810091856260_201810092055_InitialSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CustomIndexes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork\MainBCUnitOfWork.cs" />
     <Compile Include="UnitOfWork\Mapping\BrandEntityConfiguration.cs" />
