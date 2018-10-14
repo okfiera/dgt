@@ -3,7 +3,6 @@ D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.M
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.MainBoundedContext.pdb
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.MainBoundedContext.DTO.dll
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.Seedwork.dll
-D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.Common.dll
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.dll
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.Seedwork.dll
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\EntityFramework.dll
@@ -12,7 +11,6 @@ D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Infrastructur
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.dll
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.MainBoundedContext.DTO.pdb
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Application.Seedwork.pdb
-D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.Common.pdb
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.pdb
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Domain.Seedwork.pdb
 D:\Projects\prueba-is\DGT\Application.MainBoundedContext\bin\Debug\Infrastructure.CrossCutting.Seedwork.pdb

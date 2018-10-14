@@ -68,10 +68,6 @@
       <Project>{ec96aeec-f22b-4108-93f4-3b9eb2ec922d}</Project>
       <Name>Application.Seedwork</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Common\Domain.Common.csproj">
-      <Project>{74f50527-8ee1-407a-a424-a17114610777}</Project>
-      <Name>Domain.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain.MainBoundedContext\Domain.MainBoundedContext.csproj">
       <Project>{E5B2FB4F-59E3-4A96-B41E-167A2E1416B6}</Project>
       <Name>Domain.MainBoundedContext</Name>

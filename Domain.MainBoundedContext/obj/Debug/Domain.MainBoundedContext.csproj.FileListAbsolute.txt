@@ -1,12 +1,10 @@
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.dll.config
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.dll
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.MainBoundedContext.pdb
-D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.Common.dll
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.Seedwork.dll
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\EntityFramework.dll
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.dll
-D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.Common.pdb
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Domain.Seedwork.pdb
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\Infrastructure.GlobalResources.pdb
 D:\Projects\prueba-is\DGT\Domain.MainBoundedContext\bin\Debug\EntityFramework.xml
