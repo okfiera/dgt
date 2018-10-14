@@ -22,6 +22,5 @@ D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Diagnostics.Tracing.
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Threading.Tasks.xml
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Threading.Tasks.Extensions.xml
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
-D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.csprojResolveAssemblyReference.cache
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.dll
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.pdb

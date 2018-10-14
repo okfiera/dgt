@@ -11,4 +11,3 @@ D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructur
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\es\Infrastructure.GlobalResources.resources.dll
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.dll
 D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.pdb
-D:\Projects\prueba-is\DGT\Infrastructure.GlobalResources\obj\Debug\Infrastructure.GlobalResources.csprojResolveAssemblyReference.cache

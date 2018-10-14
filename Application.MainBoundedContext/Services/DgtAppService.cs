@@ -82,6 +82,7 @@ namespace Application.MainBoundedContext.Services
         #endregion
 
 
+
         #region IDgtAppService implementation
 
 
@@ -252,7 +253,7 @@ namespace Application.MainBoundedContext.Services
                     driver.Identifier, vehicle.License));
 
             // Create assignation
-            var vd = new VehicleDriver() {DriverId = driver.Id, VehicleId = vehicle.Id};
+            var vd = new VehicleDriver {DriverId = driver.Id, VehicleId = vehicle.Id, CreatedDate = DateTime.Now};
             vd.GenerateNewIdentity();
 
             // Save changes
@@ -348,6 +349,7 @@ namespace Application.MainBoundedContext.Services
             // Cast dto to vehicle and save
             var vehicle = MaterializeVehicleFromDto(vehicleDTO);
             vehicle.GenerateNewIdentity();
+            vehicle.CreatedDate = DateTime.Now;
             
             // Add habitual driver
             var driver = _driverRepository.Get(vehicleDTO.DriverId);
@@ -585,7 +587,6 @@ namespace Application.MainBoundedContext.Services
 
 
 
-
         #region Private methods
 
         private InfractionType MaterializeInfractionTypeFromDto(InfractionTypeDTO dto)
@@ -594,7 +595,6 @@ namespace Application.MainBoundedContext.Services
             {
                 Name = dto.Name,
                 Points = dto.Points,
-                CreatedDate = dto.CreatedDate,
                 Description = dto.Description
             };
 
@@ -607,8 +607,6 @@ namespace Application.MainBoundedContext.Services
         private Driver MaterializeDriverFromDto(DriverDTO dto)
         {
             var driver = DriverFactory.CreateDriver(dto.Identifier, dto.FirstName, dto.LastName, dto.Points);
-            driver.CreatedDate = dto.CreatedDate;
-
             if (dto.Id != Guid.Empty)
                 driver.ChangeCurrentIdentity(dto.Id);
 
@@ -618,7 +616,6 @@ namespace Application.MainBoundedContext.Services
         private Vehicle MaterializeVehicleFromDto(VehicleDTO dto)
         {
             var vehicle = VehicleFactory.CreateVehicle(dto.License, dto.BrandId, dto.Model);
-            vehicle.CreatedDate = dto.CreatedDate;
 
             if (dto.Id != Guid.Empty)
                 vehicle.ChangeCurrentIdentity(dto.Id);
@@ -628,9 +625,8 @@ namespace Application.MainBoundedContext.Services
 
         private Infraction MaterializeInfractionFromDto(InfractionDTO dto)
         {
-            var infraction =
-                InfractionFactory.CreateInfraction(dto.VehicleId, dto.InfractionTypeId, dto.DriverId, dto.Date);
-            infraction.CreatedDate = dto.CreatedDate;
+            var infraction = InfractionFactory.CreateInfraction(dto.VehicleId, dto.InfractionTypeId, dto.DriverId, dto.Date);
+
             return infraction;
         }
 

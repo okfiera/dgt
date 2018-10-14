@@ -41,6 +41,6 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Drivers
         /// <summary>
         /// Get or set Created date
         /// </summary>
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 }

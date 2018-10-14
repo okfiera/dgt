@@ -7,4 +7,3 @@ D:\Projects\prueba-is\DGT\Domain.Common\bin\Debug\EntityFramework.xml
 D:\Projects\prueba-is\DGT\Domain.Common\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\prueba-is\DGT\Domain.Common\obj\Debug\Domain.Common.dll
 D:\Projects\prueba-is\DGT\Domain.Common\obj\Debug\Domain.Common.pdb
-D:\Projects\prueba-is\DGT\Domain.Common\obj\Debug\Domain.Common.csprojResolveAssemblyReference.cache

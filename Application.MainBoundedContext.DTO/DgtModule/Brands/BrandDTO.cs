@@ -22,7 +22,7 @@ namespace Application.MainBoundedContext.DTO.DgtModule.Brands
         /// <summary>
         /// Get or set Created date
         /// </summary>
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         
     }
