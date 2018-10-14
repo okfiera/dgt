@@ -16,13 +16,17 @@ namespace Infrastructure.Data.MainBoundedContext.Migrations
 
         protected override void Seed(UnitOfWork.MainBCUnitOfWork context)
         {
-            // Custom indexes
-            //Create custom Indexes
-            CustomIndexes.CreateCustomIndexes(context);
 
             //DgtModule entities
             InitialDataBrands.Seed(context);
-            
+            InitialDataDrivers.Seed(context);
+            InitialDataInfractionTypes.Seed(context);
+            InitialDataVehicles.Seed(context);
+
+
+            //// Custom indexes
+            CustomIndexes.CreateCustomIndexes(context);
+
             context.SaveChanges();
         }
     }

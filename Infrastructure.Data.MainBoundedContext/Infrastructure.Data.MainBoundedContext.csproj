@@ -51,7 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DgtModule\InitialData\EntityGuids.cs" />
     <Compile Include="DgtModule\InitialData\InitialDataBrands.cs" />
+    <Compile Include="DgtModule\InitialData\InitialDataDrivers.cs" />
+    <Compile Include="DgtModule\InitialData\InitialDataInfractionTypes.cs" />
+    <Compile Include="DgtModule\InitialData\InitialDataVehicles.cs" />
     <Compile Include="DgtModule\Repositories\BrandRepository.cs" />
     <Compile Include="DgtModule\Repositories\DriverRepository.cs" />
     <Compile Include="DgtModule\Repositories\InfractionRepository.cs" />
