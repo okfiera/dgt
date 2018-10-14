@@ -13,11 +13,15 @@ namespace Presentation.Windows.Seedwork.Api
     public class ApiManagerVehicles: ApiManagerBase
     {
         const string URL_KEY = "vehicles";
-        public static async Task<List<VehicleDTO>> Search(string filter)
+        public static async Task<List<VehicleDTO>> Search(string filter = "")
         {
+            var url = URL_KEY + "/all";
+            if (!String.IsNullOrEmpty(filter))
+                url = URL_KEY + "/search/" + filter;
+
             using (var client = GetHttpClient())
             {
-                using (var response = await client.GetAsync(URL_KEY + "/search/" + filter))
+                using (var response = await client.GetAsync(url))
                 {
                     if (response.IsSuccessStatusCode)
                     {

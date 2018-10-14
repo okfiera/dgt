@@ -37,7 +37,15 @@ namespace Presentation.Windows.UI
             //run form - time taking operation
             FrmContainer mainForm = new FrmContainer();
             mainForm.Load += new EventHandler(mainForm_Load);
-            System.Windows.Forms.Application.Run(mainForm);
+            try
+            {
+                System.Windows.Forms.Application.Run(mainForm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error en la aplicación", "DGT", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         static void mainForm_Load(object sender, EventArgs e)

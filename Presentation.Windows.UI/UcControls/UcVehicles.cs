@@ -48,18 +48,18 @@ namespace Presentation.Windows.UI.UcControls
             SetResources();
         }
 
-        private void cmdAddNewVehicle_Click(object sender, EventArgs e)
+        private async void cmdAddNewVehicle_Click(object sender, EventArgs e)
         {
             var frmAddNewVehicle = new FrmAddNewVehicle();
             var driverAdded = frmAddNewVehicle.AddNewVehicle();
             if (frmAddNewVehicle.DialogResult == DialogResult.OK && driverAdded != null)
             {
                 this.txtFilter.Text = driverAdded.License;
-                this.SearchVehicles(driverAdded.License);
+                await this.SearchVehicles(driverAdded.License);
             }
         }
 
-        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        private async void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
             {
@@ -72,7 +72,7 @@ namespace Presentation.Windows.UI.UcControls
 
                 e.Handled = true;
 
-                this.SearchVehicles(filter);
+                await this.SearchVehicles(filter);
             }
         }
 
@@ -93,18 +93,18 @@ namespace Presentation.Windows.UI.UcControls
 
         #region Private methods
 
-        private async void SearchVehicles(string filter)
+        public async Task SearchVehicles(string filter = null)
         {
-            if (!String.IsNullOrEmpty(filter))
+            if (filter == null)
+                filter = this.txtFilter.Text;
+
+            this.vehicles = await ApiManagerVehicles.Search(filter);
+            if (vehicles == null || !vehicles.Any())
+                MessageBox.Show("No se ha encontrado ningún resultado", "Búsqueda de vehículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
             {
-                this.vehicles = await ApiManagerVehicles.Search(filter);
-                if (vehicles == null || !vehicles.Any())
-                    MessageBox.Show("No se ha encontrado ningún resultado", "Búsqueda de vehículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                else
-                {
-                    this.vehicleDTOBindingSource.DataSource = vehicles;
-                    this.vehicleDriverDTOBindingSource.MoveFirst();
-                }
+                this.vehicleDTOBindingSource.DataSource = vehicles;
+                this.vehicleDriverDTOBindingSource.MoveFirst();
             }
         }
 

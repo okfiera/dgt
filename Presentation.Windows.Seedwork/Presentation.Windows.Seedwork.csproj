@@ -49,6 +49,7 @@
     <Compile Include="Api\ApiManagerDrivers.cs" />
     <Compile Include="Api\ApiManagerInfractions.cs" />
     <Compile Include="Api\ApiManagerInfractionTypes.cs" />
+    <Compile Include="Api\ApiManagerTotals.cs" />
     <Compile Include="Api\ApiManagerVehicles.cs" />
     <Compile Include="Api\_ApiResult.cs" />
     <Compile Include="Api\_ApiManagerBase.cs" />

@@ -37,7 +37,7 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
         #region Api methods
 
         [HttpGet]
-        [Route("api/drivers/{id}")]
+        [Route("api/drivers/{id:guid}")]
         public IHttpActionResult Get(Guid id)
         {
             var driverDTO = this._dgtAppService.GetDriverById(id);

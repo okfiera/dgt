@@ -40,10 +40,18 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
         #region Api methods
 
         [HttpGet]
-        [Route("api/vehicles/{id}")]
+        [Route("api/vehicles/{id:guid}")]
         public IHttpActionResult Get(Guid id)
         {
             var vehicleDTO = this._dgtAppService.GetVehicleById(id);
+            return Ok(vehicleDTO);
+        }
+
+        [HttpGet]
+        [Route("api/vehicles/all")]
+        public IHttpActionResult All()
+        {
+            var vehicleDTO = this._dgtAppService.GetAllVehicles();
             return Ok(vehicleDTO);
         }
 

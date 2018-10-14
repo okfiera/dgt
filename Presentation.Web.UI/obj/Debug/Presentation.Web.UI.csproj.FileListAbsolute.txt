@@ -24,3 +24,4 @@ D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Threading.Tasks.Exte
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.dll
 D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.pdb
+D:\Projects\prueba-is\DGT\Presentation.Web.UI\obj\Debug\Presentation.Web.UI.csprojResolveAssemblyReference.cache

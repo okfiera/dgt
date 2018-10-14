@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="DgtModule\Brands\BrandDTO.cs" />
     <Compile Include="DgtModule\Drivers\DriverDTO.cs" />
+    <Compile Include="DgtModule\Infractions\ItemsCountsDTO.cs" />
     <Compile Include="DgtModule\Infractions\InfractionDTO.cs" />
     <Compile Include="DgtModule\Infractions\InfractionStatsDTO.cs" />
     <Compile Include="DgtModule\InfractionTypes\InfractionTypeDTO.cs" />

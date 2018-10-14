@@ -9,5 +9,9 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.DriverAg
 {
     public interface IDriverRepository: IRepository<Driver>
     {
+        /// <summary>
+        /// Get total drivers
+        /// </summary>
+        int Count();
     }
 }

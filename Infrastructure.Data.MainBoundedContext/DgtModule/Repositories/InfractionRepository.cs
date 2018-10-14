@@ -49,6 +49,17 @@ namespace Infrastructure.Data.MainBoundedContext.DgtModule.Repositories
             return result;
         }
 
+
+        /// <summary>
+        /// <see cref="IInfractionRepository"/>
+        /// </summary>
+        public int Count()
+        {
+            var currentUnitOfWork = this.UnitOfWork as MainBCUnitOfWork;
+            var set = currentUnitOfWork.CreateSet<Infraction>();
+            return set.Count();
+        }
+
         #endregion
 
 

@@ -23,7 +23,7 @@ namespace Presentation.Windows.Seedwork.Api
                 url += "driverIdentifier=" + driverIdentifier + "&";
 
             if (!String.IsNullOrEmpty(infractionTypeId))
-                url += "infractionTypeId=" + infractionTypeId;
+                url += "infractionTypeId=" + infractionTypeId + "&";
 
             if (from != null)
                 url += "from=" + from.Value.ToString("yyyy-MM-dd") + "&";

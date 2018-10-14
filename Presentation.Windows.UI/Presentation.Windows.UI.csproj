@@ -182,6 +182,7 @@
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Drivers.DriverDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionStatsDTO.datasource" />
+    <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Infractions.ItemsCountsDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.InfractionTypes.InfractionTypeDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.Vehicles.VehicleDTO.datasource" />
     <None Include="Properties\DataSources\Application.MainBoundedContext.DTO.DgtModule.VehiclesDrivers.VehicleDriverDTO.datasource" />

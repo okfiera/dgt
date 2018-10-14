@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -99,8 +99,8 @@
             // 
             this.infractionDTODataGridView.AllowUserToAddRows = false;
             this.infractionDTODataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.infractionDTODataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.infractionDTODataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.infractionDTODataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -289,6 +289,7 @@
             // dtpFilterFrom
             // 
             this.dtpFilterFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFilterFrom.Checked = false;
             this.dtpFilterFrom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFilterFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFilterFrom.Location = new System.Drawing.Point(545, 71);
@@ -311,6 +312,7 @@
             // dtpFilterTo
             // 
             this.dtpFilterTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFilterTo.Checked = false;
             this.dtpFilterTo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFilterTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFilterTo.Location = new System.Drawing.Point(654, 71);

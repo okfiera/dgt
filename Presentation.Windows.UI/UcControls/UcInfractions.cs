@@ -24,8 +24,7 @@ namespace Presentation.Windows.UI.UcControls
 
         #endregion
 
-
-
+        
         #region Constructor
 
         public UcInfractions()
@@ -36,19 +35,18 @@ namespace Presentation.Windows.UI.UcControls
 
         #endregion
 
+
         #region Control events
 
         private void UcInfractions_Load(object sender, EventArgs e)
         {
             SetResources();
 
-            LoadInfractionTypes();
-
             this.dtpFilterFrom.Checked = false;
             this.dtpFilterTo.Checked = false;
         }
 
-        private void cmdAddInfraction_Click(object sender, EventArgs e)
+        private async void cmdAddInfraction_Click(object sender, EventArgs e)
         {
             var frmAddNewInfraction = new FrmAddNewInfraction();
             var infractionAdded = frmAddNewInfraction.AddNewInfraction();
@@ -57,23 +55,24 @@ namespace Presentation.Windows.UI.UcControls
                 this.txtFilterDriverIdentifier.Text = infractionAdded.DriverIdentifier;
                 this.txtFilterVehicleLicense.Text = infractionAdded.VehicleLicense;
 
-                this.SearchInfractions();
+                await this.SearchInfractions();
             }
         }
-        private void cmdSearch_Click(object sender, EventArgs e)
+        private async void cmdSearch_Click(object sender, EventArgs e)
         {
-            this.SearchInfractions();
+            await this.SearchInfractions();
         }
 
         #endregion
 
 
-
-
         #region Private methods
 
-        private async void SearchInfractions()
+        public async Task SearchInfractions()
         {
+            if (this.infractionTypes == null || !this.infractionTypes.Any())
+                await this.LoadInfractionTypes();
+
             DateTime? from = null;
             if (this.dtpFilterFrom.Checked)
                 from = this.dtpFilterFrom.Value;
@@ -99,7 +98,7 @@ namespace Presentation.Windows.UI.UcControls
             this.cmdSearch.Image = Properties.Resources.zoom;
         }
 
-        private async void LoadInfractionTypes()
+        private async Task LoadInfractionTypes()
         {
             this.infractionTypes = new List<InfractionTypeDTO>()
             {
@@ -112,8 +111,7 @@ namespace Presentation.Windows.UI.UcControls
             this.infractionTypeDTOBindingSource.DataSource = this.infractionTypes;
         }
 
+
         #endregion
-
-
     }
 }

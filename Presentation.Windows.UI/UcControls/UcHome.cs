@@ -55,9 +55,9 @@ namespace Presentation.Windows.UI.UcControls
             //this.GetLastInfractions();
         }
 
-        private void cmbItems_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cmbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.GetLastInfractions();
+            await this.GetLastInfractions();
         }
 
         #endregion
@@ -66,14 +66,14 @@ namespace Presentation.Windows.UI.UcControls
 
         #region Private methods
 
-        private async void GetLastInfractions()
+        private async Task GetLastInfractions()
         {
             var count = int.Parse(this.cmbItems.SelectedItem.ToString());
             this._lastInfractions = await ApiManagerInfractions.GetLast(count);
             this.infractionDTOBindingSource.DataSource = _lastInfractions;
         }
 
-        private async void GetInfractionStats()
+        private async Task GetInfractionStats()
         {
             this.chart1.Series[0].Points.Clear();
             var stats = await ApiManagerInfractions.GetStats();
@@ -84,11 +84,18 @@ namespace Presentation.Windows.UI.UcControls
 
                 foreach(var s in _infractionStats)
                     this.chart1.Series[0].Points.AddXY(s.Name, s.Count);
-
             }
 
             else
+            {
                 _infractionStats = new List<InfractionStatsDTO>();
+            }
+        }
+
+        private async Task GetItemsTotal()
+        {
+            var result = await ApiManagerTotals.GetItemTotals();
+            this.itemsCountsDTOBindingSource.DataSource = result;
         }
 
         #endregion
@@ -97,10 +104,11 @@ namespace Presentation.Windows.UI.UcControls
 
         #region Public methods
 
-        public void RefreshControl()
+        public async void RefreshControl()
         {
-            this.GetInfractionStats();
-            this.GetLastInfractions();
+            await this.GetInfractionStats();
+            await this.GetLastInfractions();
+            await this.GetItemsTotal();
         }
 
         #endregion

@@ -41,14 +41,14 @@ namespace Presentation.Windows.UI.UcControls
             SetResources();
         }
 
-        private void cmdAddNewDriver_Click(object sender, EventArgs e)
+        private async void cmdAddNewDriver_Click(object sender, EventArgs e)
         {
             var frmAddNewDriver = new FrmAddNewDriver();
             var driverAdded = frmAddNewDriver.AddNewDriver();
             if (frmAddNewDriver.DialogResult == DialogResult.OK && driverAdded != null)
             {
                 this.txtFilter.Text = driverAdded.Identifier;
-                this.SearchDrivers(driverAdded.Identifier);
+                await this.SearchDrivers(driverAdded.Identifier);
             }
         }
 
@@ -65,7 +65,7 @@ namespace Presentation.Windows.UI.UcControls
 
                 e.Handled = true;
 
-                this.SearchDrivers(filter);
+                await this.SearchDrivers(filter);
             }
         }
 
@@ -77,21 +77,23 @@ namespace Presentation.Windows.UI.UcControls
             this.driverDTOBindingSource.DataSource = this.drivers.OrderBy(m => m.FullName);
         }
 
-        private void driverDTOBindingSource_CurrentChanged(object sender, EventArgs e)
+        private async void driverDTOBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            GetDriverVehicles();
-            GetDriverInfractions();
+            await GetDriverVehicles();
+            await GetDriverInfractions();
         }
 
         #endregion
 
 
 
-
         #region Private methods
 
-        private async void SearchDrivers(string filter)
+        public async Task SearchDrivers(string filter = null)
         {
+            if (filter == null)
+                filter = this.txtFilter.Text;
+
             if (!String.IsNullOrEmpty(filter))
             {
                 this.drivers = await ApiManagerDrivers.Search(filter);
@@ -102,7 +104,7 @@ namespace Presentation.Windows.UI.UcControls
             }
         }
 
-        private async void GetDriverVehicles()
+        private async Task GetDriverVehicles()
         {
             var currentDriver = this.driverDTOBindingSource.Current as DriverDTO;
             if (currentDriver != null)
@@ -113,7 +115,7 @@ namespace Presentation.Windows.UI.UcControls
             
         }
 
-        private async void GetDriverInfractions()
+        private async Task GetDriverInfractions()
         {
             var currentDriver = this.driverDTOBindingSource.Current as DriverDTO;
             if (currentDriver != null)

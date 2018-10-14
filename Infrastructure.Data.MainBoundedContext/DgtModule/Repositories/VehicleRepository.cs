@@ -23,5 +23,18 @@ namespace Infrastructure.Data.MainBoundedContext.DgtModule.Repositories
         }
 
         #endregion
+
+
+        #region IVehicleRepository implementation
+
+        public int Count()
+        {
+            var currentUnitOfWork = this.UnitOfWork as MainBCUnitOfWork;
+            var set = currentUnitOfWork.CreateSet<Vehicle>();
+
+            return set.Count();
+        }
+
+        #endregion
     }
 }

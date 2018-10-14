@@ -38,20 +38,19 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalVehicles = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotalDrivers = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbltotalInfractions = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbItems = new System.Windows.Forms.ComboBox();
             this.infractionDTODataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +64,9 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.infractionDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.infractionStatsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsCountsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.infractionDTODataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionStatsDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsCountsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -152,26 +154,26 @@
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Honeydew;
-            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.lblTotalVehicles);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(19, 15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(180, 31);
             this.panel4.TabIndex = 10;
             // 
-            // label3
+            // lblTotalVehicles
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblTotalVehicles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(116, 2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "1502";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTotalVehicles.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsCountsDTOBindingSource, "VehiclesCount", true));
+            this.lblTotalVehicles.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTotalVehicles.ForeColor = System.Drawing.Color.Green;
+            this.lblTotalVehicles.Location = new System.Drawing.Point(103, 2);
+            this.lblTotalVehicles.Name = "lblTotalVehicles";
+            this.lblTotalVehicles.Size = new System.Drawing.Size(74, 25);
+            this.lblTotalVehicles.TabIndex = 1;
+            this.lblTotalVehicles.Text = "0";
+            this.lblTotalVehicles.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
             // 
@@ -189,7 +191,7 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.AliceBlue;
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.lblTotalDrivers);
             this.panel5.Location = new System.Drawing.Point(236, 15);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(180, 31);
@@ -206,44 +208,44 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Conductores :";
             // 
-            // label4
+            // lblTotalDrivers
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblTotalDrivers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label4.Location = new System.Drawing.Point(116, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "1502";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTotalDrivers.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsCountsDTOBindingSource, "DriversCount", true));
+            this.lblTotalDrivers.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTotalDrivers.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblTotalDrivers.Location = new System.Drawing.Point(103, 2);
+            this.lblTotalDrivers.Name = "lblTotalDrivers";
+            this.lblTotalDrivers.Size = new System.Drawing.Size(74, 25);
+            this.lblTotalDrivers.TabIndex = 3;
+            this.lblTotalDrivers.Text = "0";
+            this.lblTotalDrivers.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.SeaShell;
-            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.lbltotalInfractions);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Location = new System.Drawing.Point(446, 15);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(180, 31);
             this.panel6.TabIndex = 12;
             // 
-            // label6
+            // lbltotalInfractions
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbltotalInfractions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(116, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "1502";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbltotalInfractions.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsCountsDTOBindingSource, "InfractionsCount", true));
+            this.lbltotalInfractions.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lbltotalInfractions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbltotalInfractions.Location = new System.Drawing.Point(103, 2);
+            this.lbltotalInfractions.Name = "lbltotalInfractions";
+            this.lbltotalInfractions.Size = new System.Drawing.Size(74, 25);
+            this.lbltotalInfractions.TabIndex = 5;
+            this.lbltotalInfractions.Text = "0";
+            this.lbltotalInfractions.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label7
             // 
@@ -352,16 +354,6 @@
             this.infractionDTODataGridView.Size = new System.Drawing.Size(1058, 366);
             this.infractionDTODataGridView.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(30, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ultimas infracciones impuestas";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -457,9 +449,23 @@
             // 
             this.infractionDTOBindingSource.DataSource = typeof(Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionDTO);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(30, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ultimas infracciones impuestas";
+            // 
             // infractionStatsDTOBindingSource
             // 
             this.infractionStatsDTOBindingSource.DataSource = typeof(Application.MainBoundedContext.DTO.DgtModule.Infractions.InfractionStatsDTO);
+            // 
+            // itemsCountsDTOBindingSource
+            // 
+            this.itemsCountsDTOBindingSource.DataSource = typeof(Application.MainBoundedContext.DTO.DgtModule.Infractions.ItemsCountsDTO);
             // 
             // UcHome
             // 
@@ -497,6 +503,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.infractionDTODataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infractionStatsDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsCountsDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -512,14 +519,14 @@
         private System.Windows.Forms.DataGridView infractionDTODataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbltotalInfractions;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotalDrivers;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalVehicles;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbItems;
         private System.Windows.Forms.Label label8;
@@ -536,5 +543,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.BindingSource infractionStatsDTOBindingSource;
+        private System.Windows.Forms.BindingSource itemsCountsDTOBindingSource;
     }
 }

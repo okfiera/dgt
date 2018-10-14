@@ -305,6 +305,19 @@ namespace Application.MainBoundedContext.Services
         /// <see cref="IDgtAppService"/>
         /// </summary>
         /// <returns><see cref="IDgtAppService"/></returns>
+        public List<VehicleDTO> GetAllVehicles()
+        {
+            var result = _vehicleRepository.GetAll();
+            if (result != null && result.Any())
+                return result.OrderByDescending(v => v.CreatedDate).ProjectedAsCollection<VehicleDTO>();
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
         public VehicleDTO GetVehicleById(Guid id)
         {
             var result = _vehicleRepository.Get(id);
@@ -524,6 +537,21 @@ namespace Application.MainBoundedContext.Services
             }
             else
                 return null;
+        }
+
+        /// <summary>
+        /// <see cref="IDgtAppService"/>
+        /// </summary>
+        /// <returns><see cref="IDgtAppService"/></returns>
+        public ItemsCountsDTO GetItemsCount()
+        {
+            var result = new ItemsCountsDTO
+            {
+                VehiclesCount = _vehicleRepository.Count(),
+                DriversCount = _driverRepository.Count(),
+                InfractionsCount = _infractionRepository.Count()
+            };
+            return result;
         }
 
         #endregion

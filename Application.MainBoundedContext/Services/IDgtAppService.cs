@@ -103,6 +103,13 @@ namespace Application.MainBoundedContext.Services
 
         #region Vehicles
 
+
+        /// <summary>
+        /// Get all vehicles
+        /// </summary>
+        /// <returns></returns>
+        List<VehicleDTO> GetAllVehicles();
+
         /// <summary>
         /// Get vehicle by Id
         /// </summary>
@@ -170,9 +177,16 @@ namespace Application.MainBoundedContext.Services
         /// <returns>Infraction stats representation</returns>
         List<InfractionStatsDTO> GetInfractionStats();
 
+        /// <summary>
+        /// Get items counts
+        /// </summary>
+        /// <returns>ItemsCountsDTO</returns>
+        ItemsCountsDTO GetItemsCount();
+
         #endregion
 
-
+        
+        //-----------------------------------------------------------------------
 
         #region VehicleDriver
 

@@ -9,5 +9,9 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.VehicleAgg
 {
     public interface IVehicleRepository: IRepository<Vehicle>
     {
+        /// <summary>
+        /// Returns total vehicles
+        /// </summary>
+        int Count();
     }
 }

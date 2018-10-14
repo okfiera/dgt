@@ -23,5 +23,19 @@ namespace Infrastructure.Data.MainBoundedContext.DgtModule.Repositories
         }
 
         #endregion
+
+
+
+        #region IDriverRespository
+
+        public int Count()
+        {
+            var currentUnitOfWork = this.UnitOfWork as MainBCUnitOfWork;
+            var set = currentUnitOfWork.CreateSet<Driver>();
+
+            return set.Count();
+        }
+
+        #endregion
     }
 }

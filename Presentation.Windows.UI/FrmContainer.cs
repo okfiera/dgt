@@ -83,7 +83,7 @@ namespace Presentation.Windows.UI
         {
             ShowControl(Option.Brands);
         }
-        private void ShowControl(Option option)
+        private async void ShowControl(Option option)
         {
             Control currentControl = null;
 
@@ -103,11 +103,13 @@ namespace Presentation.Windows.UI
 
                 case Option.Drivers:
                     if (UcDrivers == null) UcDrivers = new UcDrivers();
+                    await UcDrivers.SearchDrivers();
                     currentControl = UcDrivers;
                     break;
 
                 case Option.Infractions:
                     if (UcInfractions == null) UcInfractions = new UcInfractions();
+                    await UcInfractions.SearchInfractions();
                     currentControl = UcInfractions;
                     break;
 
@@ -118,6 +120,7 @@ namespace Presentation.Windows.UI
 
                 case Option.Vehicles:
                     if (UcVehicles == null) UcVehicles = new UcVehicles();
+                    await UcVehicles.SearchVehicles();
                     currentControl = UcVehicles;
                     break;
             }

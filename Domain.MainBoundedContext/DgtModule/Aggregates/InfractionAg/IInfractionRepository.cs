@@ -14,5 +14,10 @@ namespace Domain.MainBoundedContext.DgtModule.Aggregates.InfractionAg
         /// </summary>
         /// <returns></returns>
         IEnumerable<InfractionStats> GetInfractionsStats();
+
+        /// <summary>
+        /// Get total infractions
+        /// </summary>
+        int Count();
     }
 }

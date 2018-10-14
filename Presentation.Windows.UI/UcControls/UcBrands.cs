@@ -37,8 +37,7 @@ namespace Presentation.Windows.UI.UcControls
 
         private async void UcBrands_Load(object sender, EventArgs e)
         {
-            this.brands = await ApiManagerBrands.GetAllBrands();
-            this.brandDTOBindingSource.DataSource = this.brands.OrderBy(m => m.Name);
+            await this.SearchBrands();
         }
 
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
@@ -66,6 +65,17 @@ namespace Presentation.Windows.UI.UcControls
             this.brandDTOBindingSource.DataSource = this.brands.OrderBy(m => m.Name);
         }
 
+
+        #endregion
+
+
+        #region Private methods
+
+        public async Task SearchBrands()
+        {
+            this.brands = await ApiManagerBrands.GetAllBrands();
+            this.brandDTOBindingSource.DataSource = this.brands.OrderBy(m => m.Name);
+        }
 
         #endregion
 

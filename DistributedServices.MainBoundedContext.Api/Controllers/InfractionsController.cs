@@ -111,6 +111,21 @@ namespace DistributedServices.MainBoundedContext.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/totals")]
+        public IHttpActionResult GetTotals()
+        {
+            try
+            {
+                var results = _dgtAppService.GetItemsCount();
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
         [HttpGet]
