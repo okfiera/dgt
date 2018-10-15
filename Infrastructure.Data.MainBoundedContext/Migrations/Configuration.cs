@@ -22,6 +22,7 @@ namespace Infrastructure.Data.MainBoundedContext.Migrations
             InitialDataDrivers.Seed(context);
             InitialDataInfractionTypes.Seed(context);
             InitialDataVehicles.Seed(context);
+            InitialDataInfractions.Seed(context);
 
 
             //// Custom indexes
