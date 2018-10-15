@@ -3,7 +3,11 @@
 #### Aplicación basada en el proyecto DDD NLayared .NET 4.0 Architecture de César de la Torre ####
 https://blogs.msdn.microsoft.com/cesardelatorre/2010/03/25/our-brand-new-ddd-n-layered-net-4-0-architecture-guide-book-and-sample-app-in-codeplex/
 
-### Instalación de la base de datos
+### Dependencias
+Para el control de inicio (estadísticas), se utiliza el componente Microsoft Chart Control para Microsoft .NET Framework 3.5. La dirección de descarga es 
+https://www.microsoft.com/es-es/download/details.aspx?id=14422
+
+### Base de datos (SQL Express)
 
 1. En Visual Studio, Abrir el Package Manager Console
 2. Establecer Default project = "Infrastructure.Data.MainBoundedContext"
