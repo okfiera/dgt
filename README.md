@@ -12,7 +12,7 @@ https://www.microsoft.com/es-es/download/details.aspx?id=14422
 1. En Visual Studio, Abrir el Package Manager Console
 2. Establecer Default project = "Infrastructure.Data.MainBoundedContext"
 3. Ejecutar los siguientes comandos en el Package Manager Console:
-	* Add-Migrations Initial
+	* Add-Migration Initial
 	* Update-Database
 
 
